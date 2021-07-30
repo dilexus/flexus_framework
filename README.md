@@ -56,5 +56,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Support
-Please contact dilan@dilan.me for support
+Please contact dilan@dilan.me for support and Sample Application
 
