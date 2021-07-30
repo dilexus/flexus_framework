@@ -34,7 +34,7 @@ This is an Open Source Framework to create application with Flutter. This framew
   * google_sign_in
   * flutter_facebook_login
 
-## License
+## License (MIT)
 Copyright (c) 2021 Chatura Dilan Perera
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -56,5 +56,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Support
-Please contact dilan@dilan.me for support
+Please contact dilan@dilan.me for support and Sample Application
 
