@@ -1,4 +1,4 @@
-import 'package:flexus_framework/imports.dart';
+import '../../../../imports.dart';
 
 class ScaffoldMaster extends StatelessWidget {
   final String title;

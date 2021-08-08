@@ -4,12 +4,12 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flexus_framework/consts/login_sliders.dart';
-import 'package:flexus_framework/screens/log_in/log_in_controller.dart';
-import 'package:flexus_framework/screens/log_in/log_in_screen.dart';
 
+import '../../consts/login_sliders.dart';
 import '../../flexus_framework.dart';
 import '../../imports.dart';
+import '../../screens/log_in/log_in_controller.dart';
+import '../../screens/log_in/log_in_screen.dart';
 import '../../services/auth_service.dart';
 
 class FxSignUpController extends FxLogInController {

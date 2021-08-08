@@ -26,8 +26,10 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
 
   @override
   Widget create() {
-    return Scaffold(
-      appBar: AppBar(title: Text(Trns.profile.val)),
+    return ScaffoldMaster(
+      Trns.sign_up.val,
+      backgroundColor: Colors.white,
+      textColor: Colors.black,
       body: Obx(
         () => LoadingOverlay(
           opacity: 0.0,
@@ -61,7 +63,8 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                                 context,
                                 imageFile: controller.imageFile.value),
                           ),
-                          if (AuthService.to.authUser.value.authType == AuthType.email)
+                          if (AuthService.to.authUser.value.authType ==
+                              AuthType.email)
                             Padding(
                               padding: EdgeInsets.only(left: 100),
                               child: ElevatedButton(
@@ -104,7 +107,10 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                         inputType: InputType.date,
                         icon: Icons.date_range_outlined,
                         initialValue: AuthService.to.authUser.value.dateOfBirth,
-                        enabled: AuthService.to.authUser.value.dateOfBirth != null ? false : true,
+                        enabled:
+                            AuthService.to.authUser.value.dateOfBirth != null
+                                ? false
+                                : true,
                         validator: FormBuilderValidators.compose(
                             [FormBuilderValidators.required(context)]),
                       ),
@@ -118,7 +124,8 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                           label: Trns.password.val,
                           icon: Icons.vpn_key,
                           obscureText: true,
-                          enabled: AuthService.to.authUser.value.authType == AuthType.email,
+                          enabled: AuthService.to.authUser.value.authType ==
+                              AuthType.email,
                           validator: FormBuilderValidators.compose([
                             FormBuilderValidators.maxLength(context, 50),
                             (val) {
@@ -132,12 +139,15 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                           name: 'confirm_password',
                           label: Trns.confirm_password.val,
                           icon: Icons.vpn_key,
-                          enabled: AuthService.to.authUser.value.authType == AuthType.email,
+                          enabled: AuthService.to.authUser.value.authType ==
+                              AuthType.email,
                           obscureText: true,
                           validator: FormBuilderValidators.compose([
                             FormBuilderValidators.maxLength(context, 50),
                             (val) {
-                              if (_formKey.currentState!.fields['password']?.value != val) {
+                              if (_formKey.currentState!.fields['password']
+                                      ?.value !=
+                                  val) {
                                 return Trns.warning_passwords_not_matching.val;
                               }
                               return null;
@@ -145,7 +155,8 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                           ])),
                       SizedBox(height: 16),
                       ConstrainedBox(
-                        constraints: BoxConstraints.tightFor(width: Get.width, height: 48),
+                        constraints: BoxConstraints.tightFor(
+                            width: Get.width, height: 48),
                         child: ElevatedButton(
                           child: Text(Trns.update_profile.val),
                           onPressed: () {
@@ -173,8 +184,8 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
     var icon = Icons.attribution_outlined;
     var items = ["male", "female"];
     var enabled = gender != null ? false : true;
-    String? Function(dynamic) validator =
-        FormBuilderValidators.compose([FormBuilderValidators.required(context)]);
+    String? Function(dynamic) validator = FormBuilderValidators.compose(
+        [FormBuilderValidators.required(context)]);
     if (gender != null) {
       return TextDropdown(
         name: name,
@@ -261,7 +272,8 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
 
   _getImage(ImageSource imageSource) async {
     Get.back();
-    final pickedFile = await (imagePicker.getImage(source: imageSource) as FutureOr<PickedFile>);
+    final pickedFile = await (imagePicker.getImage(source: imageSource)
+        as FutureOr<PickedFile>);
     File croppedFile = await (ImageCropper.cropImage(
         sourcePath: pickedFile.path,
         maxWidth: 512,

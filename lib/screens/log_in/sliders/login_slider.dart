@@ -1,11 +1,11 @@
 // Copyright 2021 Chatura Dilan Perera. All rights reserved.
 // Use of this source code is governed by a MIT license
 
-import 'package:flexus_framework/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
+import '../../../../screens/sign_up/sign_up_screen.dart';
 import '../../../../widgets/text_input.dart';
 import '../log_in_controller.dart';
 import '../widgets/login_slider_master.dart';

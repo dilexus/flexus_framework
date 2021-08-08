@@ -1,9 +1,9 @@
 library flexus_framework;
 
-import 'package:flexus_framework/base_binding.dart';
-import 'package:flexus_framework/base_init.dart';
-import 'package:flexus_framework/imports.dart';
-import 'package:flexus_framework/screens/front/widgets/front_slider_item.dart';
+import 'base_binding.dart';
+import 'base_init.dart';
+import 'imports.dart';
+import 'screens/front/widgets/front_slider_item.dart';
 
 /// A Calculator.
 class FlexusFramework {

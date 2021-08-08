@@ -2,10 +2,10 @@
 // Use of this source code is governed by a MIT license
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flexus_framework/flexus_framework.dart';
-import 'package:flexus_framework/screens/front/front_screen.dart';
 
 import '../../../../consts/login_sliders.dart';
+import '../../../../flexus_framework.dart';
+import '../../../../screens/front/front_screen.dart';
 import '../../imports.dart';
 import '../../services/auth_service.dart';
 import '../front/front_screen.dart';
