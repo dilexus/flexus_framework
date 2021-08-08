@@ -6,10 +6,10 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
 import '../../../../widgets/text_input.dart';
-import '../login_controller.dart';
+import '../front_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxForgotPasswordSlider extends GetView<FxLoginController> {
+class FxForgotPasswordSlider extends GetView<FxFrontController> {
   final _formKey = GlobalKey<FormBuilderState>();
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,8 @@ class FxForgotPasswordSlider extends GetView<FxLoginController> {
                 ])),
             SizedBox(height: 32),
             ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: Get.width, height: 48),
+              constraints:
+                  BoxConstraints.tightFor(width: Get.width, height: 48),
               child: ElevatedButton(
                 child: Text(Trns.reset.val),
                 onPressed: () {

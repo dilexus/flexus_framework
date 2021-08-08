@@ -2,13 +2,14 @@
 // Use of this source code is governed by a MIT license
 
 import '../../../../imports.dart';
-import '../login_controller.dart';
+import '../front_controller.dart';
 
-class FxLoginSliderMaster extends GetView<FxLoginController> {
+class FxLoginSliderMaster extends GetView<FxFrontController> {
   final Widget? child;
   final String? title;
   final Function? onBackPressed;
-  const FxLoginSliderMaster({Key? key, this.child, this.title, this.onBackPressed})
+  const FxLoginSliderMaster(
+      {Key? key, this.child, this.title, this.onBackPressed})
       : super(key: key);
 
   @override

@@ -11,7 +11,7 @@ class FxSplashScreen extends ScreenMaster<FxSplashController> {
       body: Container(
         child: Center(
           child: Image.asset(
-            "assets/logos/logo_1024.png",
+            "assets/images/logo_1024.png",
             width: 200,
           ),
         ),

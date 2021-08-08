@@ -6,10 +6,10 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
 import '../../../../widgets/text_input.dart';
-import '../login_controller.dart';
+import '../front_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxRegistrationSlider extends GetView<FxLoginController> {
+class FxRegistrationSlider extends GetView<FxFrontController> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -72,7 +72,8 @@ class FxRegistrationSlider extends GetView<FxLoginController> {
                     FormBuilderValidators.maxLength(context, 50),
                     FormBuilderValidators.minLength(context, 8),
                     (val) {
-                      if (_formKey.currentState!.fields['password']?.value != val) {
+                      if (_formKey.currentState!.fields['password']?.value !=
+                          val) {
                         return Trns.warning_passwords_not_matching.val;
                       }
                       return null;
@@ -80,15 +81,18 @@ class FxRegistrationSlider extends GetView<FxLoginController> {
                   ])),
               SizedBox(height: 16),
               ConstrainedBox(
-                constraints: BoxConstraints.tightFor(width: Get.width, height: 48),
+                constraints:
+                    BoxConstraints.tightFor(width: Get.width, height: 48),
                 child: ElevatedButton(
                   child: Text(Trns.sign_up.val),
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       var name = _formKey.currentState!.fields['name']?.value;
                       var email = _formKey.currentState!.fields['email']?.value;
-                      var password = _formKey.currentState!.fields['password']?.value;
-                      controller.signUpWithEmailAndPassword(email, password, name);
+                      var password =
+                          _formKey.currentState!.fields['password']?.value;
+                      controller.signUpWithEmailAndPassword(
+                          email, password, name);
                     } else {
                       Util.to.logger().e("Validation Failed");
                     }
@@ -104,10 +108,12 @@ class FxRegistrationSlider extends GetView<FxLoginController> {
                       child: Text(
                         Trns.sign_in.val,
                         style: TextStyle(
-                            color: Util.to.getConfig("primary_color"), fontWeight: FontWeight.bold),
+                            color: Util.to.getConfig("primary_color"),
+                            fontWeight: FontWeight.bold),
                       ),
                       onTap: () {
-                        controller.sliderController.jumpToPage(LoginSliders.login);
+                        controller.sliderController
+                            .jumpToPage(LoginSliders.login);
                       }),
                 ],
               ),

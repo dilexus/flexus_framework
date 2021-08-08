@@ -9,10 +9,10 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
 import '../../../services/auth_service.dart';
-import '../login_controller.dart';
+import '../front_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxVerifyEmailSlider extends GetView<FxLoginController> {
+class FxVerifyEmailSlider extends GetView<FxFrontController> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -41,19 +41,21 @@ class FxVerifyEmailSlider extends GetView<FxLoginController> {
             key: _formKey,
             child: Column(children: [
               AuthService.to.isEmailVerified.value
-                  ? Text(Trns.email_after_verified.val, textAlign: TextAlign.center)
-                  : Text(Trns.email_is_being_verified.val, textAlign: TextAlign.center),
+                  ? Text(Trns.email_after_verified.val,
+                      textAlign: TextAlign.center)
+                  : Text(Trns.email_is_being_verified.val,
+                      textAlign: TextAlign.center),
               SizedBox(height: 32),
               ConstrainedBox(
-                constraints: BoxConstraints.tightFor(width: Get.width, height: 48),
+                constraints:
+                    BoxConstraints.tightFor(width: Get.width, height: 48),
                 child: ElevatedButton(
                   child: Text(Trns.next.val),
                   onPressed: AuthService.to.isEmailVerified.value
                       ? () {
                           AuthService.to.authUser.value.isEmailVerified = true;
-                          AuthService.to
-                              .afterLogin()
-                              .then((value) => Get.off(() => Util.to.getHomeScreen()));
+                          AuthService.to.afterLogin().then((value) =>
+                              Get.off(() => Util.to.getHomeScreen()));
                         }
                       : null,
                 ),

@@ -8,10 +8,10 @@ import 'package:sign_button/create_button.dart';
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
 import '../../../../widgets/text_input.dart';
-import '../login_controller.dart';
+import '../front_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxLoginSlider extends GetView<FxLoginController> {
+class FxLoginSlider extends GetView<FxFrontController> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -52,13 +52,15 @@ class FxLoginSlider extends GetView<FxLoginController> {
                 ])),
             SizedBox(height: 16),
             ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: Get.width, height: 48),
+              constraints:
+                  BoxConstraints.tightFor(width: Get.width, height: 48),
               child: ElevatedButton(
                 child: Text(Trns.sign_in.val),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     var email = _formKey.currentState!.fields['email']?.value;
-                    var password = _formKey.currentState!.fields['password']?.value;
+                    var password =
+                        _formKey.currentState!.fields['password']?.value;
                     controller.signInWithEmailAndPassword(email, password);
                   } else {
                     Util.to.logger().e("Validation Failed");
@@ -75,10 +77,12 @@ class FxLoginSlider extends GetView<FxLoginController> {
                     child: Text(
                       Trns.sign_up.val,
                       style: TextStyle(
-                          color: Util.to.getConfig("primary_color"), fontWeight: FontWeight.bold),
+                          color: Util.to.getConfig("primary_color"),
+                          fontWeight: FontWeight.bold),
                     ),
                     onTap: () {
-                      controller.sliderController.jumpToPage(LoginSliders.registration);
+                      controller.sliderController
+                          .jumpToPage(LoginSliders.registration);
                     }),
               ],
             ),
@@ -91,10 +95,12 @@ class FxLoginSlider extends GetView<FxLoginController> {
                     child: Text(
                       Trns.reset.val,
                       style: TextStyle(
-                          color: Util.to.getConfig("primary_color"), fontWeight: FontWeight.bold),
+                          color: Util.to.getConfig("primary_color"),
+                          fontWeight: FontWeight.bold),
                     ),
                     onTap: () {
-                      controller.sliderController.jumpToPage(LoginSliders.forgot_password);
+                      controller.sliderController
+                          .jumpToPage(LoginSliders.forgot_password);
                     }),
               ],
             ),

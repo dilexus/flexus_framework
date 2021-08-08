@@ -3,11 +3,12 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flexus_framework/flexus_framework.dart';
+import 'package:flexus_framework/screens/front/front_screen.dart';
 
 import '../../../../consts/login_sliders.dart';
 import '../../imports.dart';
 import '../../services/auth_service.dart';
-import '../login/login_screen.dart';
+import '../front/front_screen.dart';
 
 class FxSplashController extends GetxController {
   _startTimer() {
@@ -22,19 +23,19 @@ class FxSplashController extends GetxController {
           Util.to.logger().d(user);
         } else {
           await user.sendEmailVerification();
-          Get.off(() => FxLoginScreen(LoginSliders.verify_email));
+          Get.off(() => FxFrontScreen(LoginSliders.verify_email));
           Util.to.logger().i("User found, email is not verified");
           Util.to.logger().d(user);
         }
       } else {
-        Get.off(() => FxLoginScreen(LoginSliders.login));
-        Util.to.logger().i("User not found, going to login screen");
+        Get.off(() => FxFrontScreen(LoginSliders.login));
+        Util.to.logger().i("User not found, going to front screen");
       }
     });
   }
 
   navigateOff() {
-    Get.off(() => FxLoginScreen(LoginSliders.login));
+    Get.off(() => FxFrontScreen(LoginSliders.login));
   }
 
   init() async {
