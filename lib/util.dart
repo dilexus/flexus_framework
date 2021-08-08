@@ -14,6 +14,7 @@ import 'package:path_provider/path_provider.dart';
 
 import '../widgets/dialog_box_button.dart';
 import 'enums/build.dart';
+import 'flexus_framework.dart';
 import 'imports.dart';
 import 'models/auth_user.dart';
 
@@ -35,7 +36,7 @@ class Util extends GetxController {
   }
 
   getConfig(String configName) {
-    return FlavorConfig.instance!.variables![configName];
+    return FlavorConfig.instance.variables[configName];
   }
 
   Widget getHomeScreen() {
@@ -81,11 +82,13 @@ class Util extends GetxController {
     return buffer.toString();
   }
 
-  Widget getCircularAvatar(String? profilePicture, String? name, BuildContext? context,
+  Widget getCircularAvatar(
+      String? profilePicture, String? name, BuildContext? context,
       {File? imageFile}) {
     if (imageFile != null && imageFile.path != "") {
       return CircleAvatar(
-        backgroundImage: NetworkToFileImage(url: profilePicture, file: imageFile),
+        backgroundImage:
+            NetworkToFileImage(url: profilePicture, file: imageFile),
         radius: 50,
         backgroundColor: Colors.white,
       );
@@ -101,19 +104,23 @@ class Util extends GetxController {
         backgroundColor: Colors.white,
         child: Text(
           Util.to.getInitials(string: name!, limitTo: 2),
-          style: TextStyle(fontSize: 30, color: Theme.of(context!).primaryColor),
+          style:
+              TextStyle(fontSize: 30, color: Theme.of(context!).primaryColor),
         ),
       );
     }
   }
 
   void showErrorSnackBar(String title, String message) {
-    Get.snackbar(title, message, snackPosition: SnackPosition.BOTTOM, colorText: Colors.red);
+    Get.snackbar(title, message,
+        snackPosition: SnackPosition.BOTTOM, colorText: Colors.red);
   }
 
   Map<String, Map<String, String>> getTranslations(
-      Map<String, Map<String, String>> map1, Map<String, Map<String, String>> map2) {
-    map1.forEach((c, o) => map1[c]!.forEach((k, v) => map2[c]?.putIfAbsent(k, () => v)));
+      Map<String, Map<String, String>> map1,
+      Map<String, Map<String, String>> map2) {
+    map1.forEach(
+        (c, o) => map1[c]!.forEach((k, v) => map2[c]?.putIfAbsent(k, () => v)));
     return map2;
   }
 
@@ -131,7 +138,8 @@ class Util extends GetxController {
         middleText: message,
         barrierDismissible: barrierDismissible,
         content: content,
-        confirm: DialogBoxButton(textOK ?? Trns.ok.val, onOKPressed ?? () => Get.back()),
+        confirm: DialogBoxButton(
+            textOK ?? Trns.ok.val, onOKPressed ?? () => Get.back()),
         radius: 8);
   }
 
@@ -149,8 +157,10 @@ class Util extends GetxController {
         middleText: message,
         content: content,
         barrierDismissible: barrierDismissible,
-        confirm: DialogBoxButton(textYes ?? Trns.yes.val, onYesPressed ?? () => Get.back()),
-        cancel: DialogBoxButton(textNo ?? Trns.no.val, onNoPressed ?? () => Get.back()),
+        confirm: DialogBoxButton(
+            textYes ?? Trns.yes.val, onYesPressed ?? () => Get.back()),
+        cancel: DialogBoxButton(
+            textNo ?? Trns.no.val, onNoPressed ?? () => Get.back()),
         radius: 8);
   }
 
@@ -170,9 +180,12 @@ class Util extends GetxController {
         middleText: message,
         content: content,
         barrierDismissible: barrierDismissible,
-        confirm: DialogBoxButton(textYes ?? Trns.yes.val, onYesPressed ?? () => Get.back()),
-        cancel: DialogBoxButton(textNo ?? Trns.no.val, onNoPressed ?? () => Get.back()),
-        custom: DialogBoxButton(textCustom ?? Trns.ok.val, onCustomPressed ?? () => Get.back()),
+        confirm: DialogBoxButton(
+            textYes ?? Trns.yes.val, onYesPressed ?? () => Get.back()),
+        cancel: DialogBoxButton(
+            textNo ?? Trns.no.val, onNoPressed ?? () => Get.back()),
+        custom: DialogBoxButton(
+            textCustom ?? Trns.ok.val, onCustomPressed ?? () => Get.back()),
         radius: 8);
   }
 
@@ -182,8 +195,40 @@ class Util extends GetxController {
     return File(pathName);
   }
 
+  void handleSignError(FirebaseAuthException e) {
+    switch (e.code) {
+      case "user-not-found":
+        Util.to.showErrorSnackBar(
+            FlexusController.to.title.value, Trns.error_no_user_found.val);
+        break;
+      case "wrong-password":
+        Util.to.showErrorSnackBar(
+            FlexusController.to.title.value, Trns.error_wrong_password.val);
+        break;
+      case "weak-password":
+        Util.to.showErrorSnackBar(
+            FlexusController.to.title.value, Trns.error_weak_password.val);
+        break;
+      case "email-already-in-use":
+        Util.to.showErrorSnackBar(FlexusController.to.title.value,
+            Trns.error_account_already_exist.val);
+        break;
+      case "account-exists-with-different-credential":
+        Util.to.showErrorSnackBar(FlexusController.to.title.value,
+            Trns.error_account_exist_with_same_email.val);
+        break;
+      case "too-many-requests":
+        Util.to.showErrorSnackBar(FlexusController.to.title.value,
+            Trns.error_account_exist_with_same_email.val);
+        break;
+      default:
+        Util.to.showErrorSnackBar(
+            FlexusController.to.title.value, Trns.error_sign_in_failure.val);
+    }
+  }
+
   Build getBuild() {
-    switch (FlavorConfig.instance!.name) {
+    switch (FlavorConfig.instance.name) {
       case "Internal":
         return Build.internal;
       case "Alpha":

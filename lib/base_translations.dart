@@ -7,7 +7,15 @@ class BaseTranslations extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en': {
-          Trns.sign_in.name: 'Sign In',
+          Trns.sign_in.name: 'Log In',
+          Trns.sign_in_with_google.name: 'Log In with Google',
+          Trns.sign_in_with_facebook.name: 'Log In with Facebook',
+          Trns.sign_in_with_apple.name: 'Log In with Apple',
+          Trns.sign_up_with_google.name: 'Sign Up with Google',
+          Trns.sign_up_with_facebook.name: 'Sign Up with Facebook',
+          Trns.sign_up_with_apple.name: 'Sign Up with Apple',
+          Trns.sign_in.name: 'Log In',
+          Trns.sign_in.name: 'Log In',
           Trns.sign_up.name: 'Sign Up',
           Trns.name.name: 'Name',
           Trns.username.name: 'Username',
@@ -17,7 +25,7 @@ class BaseTranslations extends Translations {
           Trns.dont_have_an_account.name: "Don't have an account? ",
           Trns.forgot_your_password.name: "Forgot your password? ",
           Trns.reset.name: "Reset",
-          Trns.or_sign_in_with.name: "or sign in with",
+          Trns.or_sign_in_with.name: "or front in with",
           Trns.already_have_an_account.name: "Already have an account? ",
           Trns.email_is_being_verified.name:
               "Your email is being verified. Please click on the link which is sent to your email and click on Next button once you do so.",
@@ -35,7 +43,8 @@ class BaseTranslations extends Translations {
           Trns.security.name: "Security",
           Trns.male.name: "Male",
           Trns.female.name: "Female",
-          Trns.warning_passwords_not_matching.name: "Password length must be 8 characters long",
+          Trns.warning_passwords_not_matching.name:
+              "Password length must be 8 characters long",
           Trns.warning_minimum_password_length.name:
               "Password and confirm password is not matching",
           Trns.select_the_gender.name: "Select the gender",
@@ -46,20 +55,28 @@ class BaseTranslations extends Translations {
           Trns.cancel.name: "Cancel",
           Trns.yes.name: "Yes",
           Trns.no.name: "No",
-          Trns.reset_password_sent.name: "Reset password email sent to your email inbox",
+          Trns.reset_password_sent.name:
+              "Reset password email sent to your email inbox",
           Trns.logout_confirmation.name: "Are you sure you want to logout?",
           Trns.error_no_user_found.name: "No user found for that email.",
-          Trns.error_wrong_password.name: "Wrong password provided for that user.",
+          Trns.error_wrong_password.name:
+              "Wrong password provided for that user.",
           Trns.error_weak_password.name: "The password provided is too weak.",
-          Trns.error_account_already_exist.name: "The account already exists for that email.",
+          Trns.error_account_already_exist.name:
+              "The account already exists for that email.",
           Trns.error_account_exist_with_same_email.name:
-              "An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address.",
-          Trns.error_sign_in_failure.name: "Sign in failure",
-          Trns.error_sign_up_failure.name: "Sign in failure",
+              "An account already exists with the same email address but different front-in credentials. Login in using a provider associated with this email address.",
+          Trns.error_sign_in_failure.name: "Login in failure",
+          Trns.error_sign_up_failure.name: "Login in failure",
           Trns.error_reset_password_failed.name: "Failed to reset the password",
-          Trns.error_google_sign_in_failed.name: "Failed to sign in with Google.",
-          Trns.error_facebook_sign_in_failed.name: "Failed to sign in with Facebook.",
-          Trns.error_facebook_sign_in_canceled.name: "Failed to sign in with Facebook.",
+          Trns.error_google_sign_in_failed.name:
+              "Failed to front in with Google.",
+          Trns.error_facebook_sign_in_failed.name:
+              "Failed to front in with Facebook.",
+          Trns.error_facebook_sign_in_canceled.name:
+              "Failed to front in with Facebook.",
+          Trns.error_too_many_requests.name:
+              "Too many requests to verify the email. Please try again in a while",
         },
         'de': {
           'hello': 'Hallo Welt',
@@ -70,7 +87,13 @@ class BaseTranslations extends Translations {
 enum Trns {
   translation,
   sign_in,
+  sign_in_with_google,
+  sign_in_with_facebook,
+  sign_in_with_apple,
   sign_up,
+  sign_up_with_google,
+  sign_up_with_facebook,
+  sign_up_with_apple,
   name,
   username,
   email,
@@ -117,7 +140,8 @@ enum Trns {
   error_reset_password_failed,
   error_google_sign_in_failed,
   error_facebook_sign_in_failed,
-  error_facebook_sign_in_canceled
+  error_facebook_sign_in_canceled,
+  error_too_many_requests
 }
 
 extension ExtTr on Trns? {

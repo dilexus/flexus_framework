@@ -34,13 +34,13 @@ class TextInput extends StatelessWidget {
         initialValue: initialValue,
         enabled: enabled,
         decoration: InputDecoration(
-            labelText: label,
-            contentPadding: EdgeInsets.all(16),
-            border: new OutlineInputBorder(borderSide: new BorderSide()),
-            prefixIcon: Icon(
-              icon,
-              color: enabled ? Theme.of(context).primaryColor : Theme.of(context).disabledColor,
-            )),
+          labelText: label,
+          labelStyle: TextStyle(
+              color:
+                  enabled ? Colors.black54 : Theme.of(context).disabledColor),
+          contentPadding: EdgeInsets.all(16),
+          border: new OutlineInputBorder(borderSide: new BorderSide()),
+        ),
         validator: validator,
         obscureText: obscureText!,
       ),
