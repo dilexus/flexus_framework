@@ -2,7 +2,7 @@ import '../../imports.dart';
 
 class LoginButton extends StatelessWidget {
   final String name;
-  final Function onClick;
+  final VoidCallback onClick;
   final Icon icon;
   LoginButton(this.name, {required this.icon, required this.onClick});
 
@@ -28,7 +28,7 @@ class LoginButton extends StatelessWidget {
                 Align(alignment: Alignment.center, child: Text(name)),
               ],
             ),
-            onPressed: () => onClick),
+            onPressed: onClick),
       ),
     );
   }

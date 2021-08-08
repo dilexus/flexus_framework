@@ -12,13 +12,16 @@ import '../front/front_screen.dart';
 
 class FxSplashController extends GetxController {
   _startTimer() {
-    new Future.delayed(Duration(seconds: Util.to.getConfig("splash_timer_seconds")), () async {
+    new Future.delayed(
+        Duration(seconds: Util.to.getConfig("splash_timer_seconds")), () async {
       FirebaseAuth.instance.currentUser?.reload();
       var user = FirebaseAuth.instance.currentUser;
       if (user != null) {
         Util.to.setAuthUserDetails(AuthService.to.authUser.value, user);
         if (user.emailVerified) {
-          AuthService.to.afterLogin().then((value) => Get.off(() => Util.to.getHomeScreen()));
+          AuthService.to
+              .afterLogin()
+              .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
           Util.to.logger().i("User found, going to home screen");
           Util.to.logger().d(user);
         } else {

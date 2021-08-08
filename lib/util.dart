@@ -217,6 +217,10 @@ class Util extends GetxController {
         Util.to.showErrorSnackBar(FlexusController.to.title.value,
             Trns.error_account_exist_with_same_email.val);
         break;
+      case "too-many-requests":
+        Util.to.showErrorSnackBar(FlexusController.to.title.value,
+            Trns.error_account_exist_with_same_email.val);
+        break;
       default:
         Util.to.showErrorSnackBar(
             FlexusController.to.title.value, Trns.error_sign_in_failure.val);

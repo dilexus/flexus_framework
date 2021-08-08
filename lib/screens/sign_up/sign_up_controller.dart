@@ -4,12 +4,15 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flexus_framework/consts/login_sliders.dart';
+import 'package:flexus_framework/screens/log_in/log_in_controller.dart';
+import 'package:flexus_framework/screens/log_in/log_in_screen.dart';
 
 import '../../flexus_framework.dart';
 import '../../imports.dart';
 import '../../services/auth_service.dart';
 
-class FxSignUpController extends GetxController {
+class FxSignUpController extends FxLogInController {
   var isLoading = false.obs;
 
   Future<void> signUpWithEmailAndPassword(
@@ -30,11 +33,10 @@ class FxSignUpController extends GetxController {
             AuthService.to.isEmailVerified.value = true;
             AuthService.to
                 .afterLogin()
-                .then((value) => Get.off(() => Util.to.getHomeScreen()));
+                .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
           } else {
             await user.sendEmailVerification();
-            //TODO Call Email Verification
-            // sliderController.jumpToPage(LoginSliders.verify_email);
+            Get.off(() => FxLoginScreen(LoginSliders.verify_email));
           }
         });
     } on FirebaseAuthException catch (e) {

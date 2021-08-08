@@ -38,7 +38,7 @@ class FxFrontController extends GetxController {
         isLoading.value = false;
         AuthService.to
             .afterLogin()
-            .then((value) => Get.off(() => Util.to.getHomeScreen()));
+            .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
       }
     } catch (e) {
       Util.to.logger().e(e);
@@ -64,7 +64,7 @@ class FxFrontController extends GetxController {
           isLoading.value = false;
           AuthService.to
               .afterLogin()
-              .then((value) => Get.off(() => Util.to.getHomeScreen()));
+              .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
         } else {
           await user.sendEmailVerification();
           isLoading.value = false;
@@ -101,7 +101,7 @@ class FxFrontController extends GetxController {
             AuthService.to.isEmailVerified.value = true;
             AuthService.to
                 .afterLogin()
-                .then((value) => Get.off(() => Util.to.getHomeScreen()));
+                .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
           } else {
             await user.sendEmailVerification();
             sliderController.jumpToPage(LoginSliders.verify_email);
@@ -138,7 +138,7 @@ class FxFrontController extends GetxController {
               AuthService.to.isEmailVerified.value = true;
               AuthService.to
                   .afterLogin()
-                  .then((value) => Get.off(() => Util.to.getHomeScreen()));
+                  .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
             } else {
               await user.sendEmailVerification();
               sliderController.jumpToPage(LoginSliders.verify_email);

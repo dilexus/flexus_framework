@@ -1,17 +1,16 @@
 // Copyright 2021 Chatura Dilan Perera. All rights reserved.
 // Use of this source code is governed by a MIT license
 
+import 'package:flexus_framework/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:sign_button/constants.dart';
-import 'package:sign_button/create_button.dart';
 
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
 import '../../../../widgets/text_input.dart';
-import '../front_controller.dart';
+import '../log_in_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxLoginSlider extends GetView<FxFrontController> {
+class FxLoginSlider extends GetView<FxLogInController> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -81,8 +80,7 @@ class FxLoginSlider extends GetView<FxFrontController> {
                           fontWeight: FontWeight.bold),
                     ),
                     onTap: () {
-                      controller.sliderController
-                          .jumpToPage(LoginSliders.registration);
+                      Get.off(() => FxSignUpScreen());
                     }),
               ],
             ),
@@ -99,36 +97,11 @@ class FxLoginSlider extends GetView<FxFrontController> {
                           fontWeight: FontWeight.bold),
                     ),
                     onTap: () {
-                      controller.sliderController
+                      controller.loginSliderController
                           .jumpToPage(LoginSliders.forgot_password);
                     }),
               ],
             ),
-            SizedBox(height: 32),
-            Text(Trns.or_sign_in_with.val),
-            SizedBox(height: 32),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SignInButton.mini(
-                  buttonType: ButtonType.facebook,
-                  onPressed: () {
-                    controller.signInWithFacebook();
-                  },
-                ),
-                SignInButton.mini(
-                  buttonType: ButtonType.google,
-                  onPressed: () {
-                    controller.signInWithGoogle();
-                  },
-                ),
-                if (GetPlatform.isIOS)
-                  SignInButton.mini(
-                    buttonType: ButtonType.apple,
-                    onPressed: () {},
-                  ),
-              ],
-            )
           ]),
         ),
       ),

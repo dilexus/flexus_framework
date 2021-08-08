@@ -2,11 +2,12 @@
 // Use of this source code is governed by a MIT license
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flexus_framework/screens/log_in/log_in_screen.dart';
-import 'package:flexus_framework/screens/sign_up/sign_up_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../consts/login_sliders.dart';
 import '../../../imports.dart';
+import '../../../screens/log_in/log_in_screen.dart';
+import '../../../screens/sign_up/sign_up_screen.dart';
 import '../../flexus_framework.dart';
 import 'front_controller.dart';
 import 'widgets/front_slider_item.dart';
@@ -130,7 +131,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                             primary: Colors.white, onPrimary: Colors.black),
                         child: Text(Trns.sign_in.val),
                         onPressed: () {
-                          Get.to(() => FxLoginScreen());
+                          Get.to(() => FxLoginScreen(LoginSliders.login));
                         },
                       ),
                     )

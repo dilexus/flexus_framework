@@ -8,11 +8,11 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
-import '../../../services/auth_service.dart';
-import '../front_controller.dart';
+import '../../../../services/auth_service.dart';
+import '../log_in_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxVerifyEmailSlider extends GetView<FxFrontController> {
+class FxVerifyEmailSlider extends GetView<FxLogInController> {
   final _formKey = GlobalKey<FormBuilderState>();
 
   @override
@@ -24,7 +24,8 @@ class FxVerifyEmailSlider extends GetView<FxFrontController> {
         onBackPressed: AuthService.to.isEmailVerified.value
             ? null
             : () {
-                controller.sliderController.animateToPage(LoginSliders.login);
+                controller.loginSliderController
+                    .animateToPage(LoginSliders.login);
               },
         child: Theme(
           data: new ThemeData(

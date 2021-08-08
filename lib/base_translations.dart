@@ -75,6 +75,8 @@ class BaseTranslations extends Translations {
               "Failed to front in with Facebook.",
           Trns.error_facebook_sign_in_canceled.name:
               "Failed to front in with Facebook.",
+          Trns.error_too_many_requests.name:
+              "Too many requests to verify the email. Please try again in a while",
         },
         'de': {
           'hello': 'Hallo Welt',
@@ -138,7 +140,8 @@ enum Trns {
   error_reset_password_failed,
   error_google_sign_in_failed,
   error_facebook_sign_in_failed,
-  error_facebook_sign_in_canceled
+  error_facebook_sign_in_canceled,
+  error_too_many_requests
 }
 
 extension ExtTr on Trns? {
