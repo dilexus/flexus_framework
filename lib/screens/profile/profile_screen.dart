@@ -27,7 +27,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
   @override
   Widget create() {
     return ScaffoldMaster(
-      Trns.sign_up.val,
+      Trns.update_profile.val,
       backgroundColor: Colors.white,
       textColor: Colors.black,
       body: Obx(
