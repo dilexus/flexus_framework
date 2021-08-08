@@ -2,7 +2,7 @@ import 'package:flexus_framework/imports.dart';
 
 class ScaffoldMaster extends StatelessWidget {
   final String title;
-  final Widget child;
+  final Widget body;
   final Widget? drawer;
   final Widget? leading;
   final Color? backgroundColor;
@@ -12,7 +12,7 @@ class ScaffoldMaster extends StatelessWidget {
       this.backgroundColor,
       this.textColor,
       this.leading,
-      required this.child});
+      required this.body});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class ScaffoldMaster extends StatelessWidget {
           drawer: drawer,
           body: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: child,
+            child: body,
           )),
     );
   }

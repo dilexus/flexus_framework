@@ -17,7 +17,7 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
     return ScaffoldMaster(Trns.sign_up.val,
         backgroundColor: Colors.white,
         textColor: Colors.black,
-        child: Obx(
+        body: Obx(
           () => LoadingOverlay(
             opacity: 0.0,
             isLoading: controller.isLoading.value,
