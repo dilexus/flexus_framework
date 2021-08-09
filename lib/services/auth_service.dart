@@ -18,12 +18,11 @@ class AuthService extends GetxService {
     DocumentSnapshot doc =
         await FirebaseFirestore.instance.collection("users").doc(uuid).get();
     if (doc.exists) {
-      if (doc['gender'] != null || doc['gender'] != "") {
-        values['gender'] = doc['gender'];
-      }
-      if (doc['dateOfBirth'] != null || doc['dateOfBirth'] != "") {
-        values['dateOfBirth'] = doc['dateOfBirth'];
-      }
+      values['gender'] =
+          doc.data().toString().contains('gender') ? doc.get('gender') : null;
+      values['dateOfBirth'] = doc.data().toString().contains('dateOfBirth')
+          ? doc.get('dateOfBirth')
+          : null;
     }
     return values;
   }
