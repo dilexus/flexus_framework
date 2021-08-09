@@ -3,8 +3,10 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../../consts/login_sliders.dart';
 import '../../../../flexus_framework.dart';
 import '../../../../screens/front/front_screen.dart';
+import '../../../../screens/log_in/log_in_screen.dart';
 import '../../imports.dart';
 import '../../services/auth_service.dart';
 import '../front/front_screen.dart';
@@ -25,7 +27,7 @@ class FxSplashController extends GetxController {
           Util.to.logger().d(user);
         } else {
           await user.sendEmailVerification();
-          Get.off(() => FxFrontScreen());
+          Get.off(() => FxLoginScreen(LoginSliders.verify_email));
           Util.to.logger().i("User found, email is not verified");
           Util.to.logger().d(user);
         }
