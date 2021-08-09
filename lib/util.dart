@@ -87,26 +87,35 @@ class Util extends GetxController {
       {File? imageFile}) {
     if (imageFile != null && imageFile.path != "") {
       return CircleAvatar(
-        backgroundImage:
-            NetworkToFileImage(url: profilePicture, file: imageFile),
-        radius: 50,
-        backgroundColor: Colors.white,
-      );
+          radius: 51,
+          backgroundColor: Colors.black,
+          child: CircleAvatar(
+            backgroundImage:
+                NetworkToFileImage(url: profilePicture, file: imageFile),
+            radius: 50,
+            backgroundColor: Colors.white,
+          ));
     } else if (profilePicture != null) {
       return CircleAvatar(
-        backgroundImage: NetworkToFileImage(url: profilePicture),
-        radius: 50,
-        backgroundColor: Colors.white,
-      );
+          radius: 51,
+          backgroundColor: Colors.black,
+          child: CircleAvatar(
+            backgroundImage: NetworkToFileImage(url: profilePicture),
+            radius: 50,
+            backgroundColor: Colors.white,
+          ));
     } else {
       return CircleAvatar(
-        radius: 50,
-        backgroundColor: Colors.white,
-        child: Text(
-          Util.to.getInitials(string: name!, limitTo: 2),
-          style:
-              TextStyle(fontSize: 30, color: Theme.of(context!).primaryColor),
-        ),
+        radius: 51,
+        backgroundColor: Colors.black,
+        child: CircleAvatar(
+            radius: 50,
+            backgroundColor: Colors.white,
+            child: Text(
+              Util.to.getInitials(string: name!, limitTo: 2),
+              style: TextStyle(
+                  fontSize: 30, color: Theme.of(context!).primaryColor),
+            )),
       );
     }
   }

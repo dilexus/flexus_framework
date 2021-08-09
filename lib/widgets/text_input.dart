@@ -39,6 +39,9 @@ class TextInput extends StatelessWidget {
               color:
                   enabled ? Colors.black54 : Theme.of(context).disabledColor),
           contentPadding: EdgeInsets.all(16),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Theme.of(context).primaryColor),
+          ),
           border: new OutlineInputBorder(borderSide: new BorderSide()),
         ),
         validator: validator,

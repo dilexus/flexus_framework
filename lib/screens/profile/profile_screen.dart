@@ -272,10 +272,9 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
 
   _getImage(ImageSource imageSource) async {
     Get.back();
-    final pickedFile = await (imagePicker.getImage(source: imageSource)
-        as FutureOr<PickedFile>);
-    File croppedFile = await (ImageCropper.cropImage(
-        sourcePath: pickedFile.path,
+    final pickedFile = await (imagePicker.pickImage(source: imageSource));
+    File? croppedFile = await (ImageCropper.cropImage(
+        sourcePath: pickedFile!.path,
         maxWidth: 512,
         maxHeight: 512,
         aspectRatioPresets: [
@@ -289,7 +288,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
             lockAspectRatio: true),
         iosUiSettings: IOSUiSettings(
           minimumAspectRatio: 1.0,
-        )) as FutureOr<File>);
-    controller.imageFile.value = File(croppedFile.path);
+        )));
+    controller.imageFile.value = File(croppedFile!.path);
   }
 }
