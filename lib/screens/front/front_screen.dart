@@ -13,8 +13,6 @@ import 'front_controller.dart';
 import 'widgets/front_slider_item.dart';
 
 class FxFrontScreen extends ScreenMaster<FxFrontController> {
-  final int initialPage;
-  FxFrontScreen(this.initialPage);
   @override
   Widget create() {
     return SafeArea(
