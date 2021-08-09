@@ -15,15 +15,21 @@ class AuthService extends GetxService {
 
   Future<Map<String, dynamic>> getUser(String uuid) async {
     var values = new Map<String, dynamic>();
-    DocumentSnapshot doc = await FirebaseFirestore.instance.collection("users").doc(uuid).get();
+    DocumentSnapshot doc =
+        await FirebaseFirestore.instance.collection("users").doc(uuid).get();
     if (doc.exists) {
-      values['gender'] = doc['gender'];
-      values['dateOfBirth'] = doc['dateOfBirth'];
+      if (doc['gender'] != null || doc['gender'] != "") {
+        values['gender'] = doc['gender'];
+      }
+      if (doc['dateOfBirth'] != null || doc['dateOfBirth'] != "") {
+        values['dateOfBirth'] = doc['dateOfBirth'];
+      }
     }
     return values;
   }
 
-  Future<void> updateUser(String? uuid, Gender gender, DateTime? dateOfBirth) async {
+  Future<void> updateUser(
+      String? uuid, Gender gender, DateTime? dateOfBirth) async {
     var values = new Map<String, dynamic>();
     values['gender'] = gender.toShortString();
     if (dateOfBirth != null) values['dateOfBirth'] = dateOfBirth;
@@ -37,7 +43,8 @@ class AuthService extends GetxService {
       AuthService.to.authUser.value.gender =
           userData['gender'] == "male" ? Gender.male : Gender.female;
     if (userData['dateOfBirth'] != null)
-      AuthService.to.authUser.value.dateOfBirth = userData['dateOfBirth'].toDate();
+      AuthService.to.authUser.value.dateOfBirth =
+          userData['dateOfBirth'].toDate();
     await FlexusController.to.init?.afterAuthentication();
     Util.to.logger().d("Login Success");
   }
