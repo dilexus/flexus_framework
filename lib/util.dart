@@ -13,7 +13,6 @@ import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 
 import '../widgets/dialog_box_button.dart';
-import 'enums/build.dart';
 import 'flexus_framework.dart';
 import 'imports.dart';
 import 'models/auth_user.dart';
@@ -233,19 +232,6 @@ class Util extends GetxController {
       default:
         Util.to.showErrorSnackBar(
             FlexusController.to.title.value, Trns.error_sign_in_failure.val);
-    }
-  }
-
-  Build getBuild() {
-    switch (FlavorConfig.instance.name) {
-      case "Internal":
-        return Build.internal;
-      case "Alpha":
-        return Build.alpha;
-      case "Alpha":
-        return Build.beta;
-      default:
-        return Build.prod;
     }
   }
 }
