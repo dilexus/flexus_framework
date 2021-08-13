@@ -54,7 +54,7 @@ class AuthService extends GetxService {
         title: "",
         onYesPressed: () {
           FirebaseAuth.instance.signOut().then((value) {
-            Get.off(navigateToScreen);
+            Get.offAll(navigateToScreen);
             AuthService.to.isEmailVerified.value = false;
             AuthService.to.authUser = AuthUser().obs;
             Util.to.logger().i("User logged out");
