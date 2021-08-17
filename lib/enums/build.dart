@@ -1,1 +1,1 @@
-enum Build { prod, alpha, beta, internal }
+enum Build { dev, stag, qa, prod }
