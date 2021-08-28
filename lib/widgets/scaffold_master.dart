@@ -10,12 +10,14 @@ class ScaffoldMaster extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final AppBar? appBar;
+  final List<Widget>? actions;
   ScaffoldMaster(this.title,
       {this.drawer,
       this.backgroundColor,
       this.textColor,
       this.leading,
       this.appBar,
+      this.actions,
       required this.body});
 
   @override
@@ -27,6 +29,7 @@ class ScaffoldMaster extends StatelessWidget {
               : AppBar(
                   leading: leading,
                   title: Text(title),
+                  actions: actions,
                   backwardsCompatibility: false,
                   backgroundColor: backgroundColor ??
                       Theme.of(Get.context!).appBarTheme.backgroundColor,
