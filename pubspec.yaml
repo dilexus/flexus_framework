@@ -1,6 +1,6 @@
 name: flexus_framework
 description: Flexus Framework
-version: 4.0.9
+version: 4.0.10
 homepage:
 
 environment:
@@ -15,7 +15,7 @@ dependencies:
   get: ^4.3.8
   flutter_flavor: ^3.0.3
   intl: ^0.17.0
-  logger: ^1.0.0
+  logger: ^1.1.0
   collection: ^1.15.0
   network_to_file_image: ^3.0.0
   path_provider: ^2.0.2
@@ -29,19 +29,19 @@ dependencies:
   flutter_form_builder: ^6.0.1
   loading_overlay: ^0.3.0
   focus_detector: ^2.0.0
-  image_picker: ^0.8.3+2
+  image_picker: ^0.8.3+3
   image_cropper: ^1.4.1
   sizer: ^2.0.13
 
   #Firebase
-  firebase_auth: ^3.0.2
-  firebase_core: ^1.5.0
-  cloud_firestore: ^2.5.0
-  firebase_storage: ^10.0.2
+  firebase_auth: ^3.1.0
+  firebase_core: ^1.6.0
+  cloud_firestore: ^2.5.1
+  firebase_storage: ^10.0.3
 
   #Auth
   google_sign_in: ^5.0.7
-  flutter_facebook_auth: ^3.5.0+1
+  flutter_facebook_auth: ^3.5.1
 
 dev_dependencies:
   flutter_test:
