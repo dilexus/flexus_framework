@@ -36,10 +36,7 @@ class ScaffoldMaster extends StatelessWidget {
                   foregroundColor: textColor ??
                       Theme.of(Get.context!).appBarTheme.foregroundColor),
           drawer: drawer,
-          body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: body,
-          )),
+          body: body),
     );
   }
 }
