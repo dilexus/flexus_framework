@@ -234,4 +234,16 @@ class Util extends GetxController {
             FlexusController.to.title.value, Trns.error_sign_in_failure.val);
     }
   }
+
+  dynamic getSizesForScreens(dynamic mobile, {dynamic tablet}) {
+    if (tablet == null) tablet = mobile;
+    switch (SizerUtil.deviceType) {
+      case DeviceType.mobile:
+        return mobile;
+      case DeviceType.tablet:
+        return tablet;
+      default:
+        return mobile;
+    }
+  }
 }
