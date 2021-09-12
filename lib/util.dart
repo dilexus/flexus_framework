@@ -235,7 +235,7 @@ class Util extends GetxController {
     }
   }
 
-  dynamic getSizesForScreens(dynamic mobile, {dynamic tablet}) {
+  dynamic getSizesForScreens({required dynamic mobile, dynamic tablet}) {
     if (tablet == null) tablet = mobile;
     switch (SizerUtil.deviceType) {
       case DeviceType.mobile:
