@@ -19,9 +19,11 @@ class FxProfileController extends GetxController {
     if (formKey.currentState!.validate()) {
       String? name = formKey.currentState!.fields['name']?.value?.trim();
       String? password = formKey.currentState!.fields['password']?.value;
-      Gender gender =
-          formKey.currentState!.fields['gender']?.value == "male" ? Gender.male : Gender.female;
-      DateTime? dateOfBirth = formKey.currentState!.fields['date_of_birth']?.value;
+      Gender gender = formKey.currentState!.fields['gender']?.value == "male"
+          ? Gender.male
+          : Gender.female;
+      DateTime? dateOfBirth =
+          formKey.currentState!.fields['date_of_birth']?.value;
 
       User user = FirebaseAuth.instance.currentUser!..reload();
 
@@ -46,9 +48,11 @@ class FxProfileController extends GetxController {
           imageFile.value = File("");
           if (AuthService.to.authUser.value.gender == null ||
               AuthService.to.authUser.value.dateOfBirth == null) {
-            AuthService.to.updateUser(AuthService.to.authUser.value.uuid, gender, dateOfBirth);
-            if (gender != null) AuthService.to.authUser.value.gender = gender;
-            if (dateOfBirth != null) AuthService.to.authUser.value.dateOfBirth = dateOfBirth;
+            AuthService.to.updateUser(
+                AuthService.to.authUser.value.uuid, gender, dateOfBirth);
+            AuthService.to.authUser.value.gender = gender;
+            if (dateOfBirth != null)
+              AuthService.to.authUser.value.dateOfBirth = dateOfBirth;
           }
           isLoading.value = false;
           Get.back();

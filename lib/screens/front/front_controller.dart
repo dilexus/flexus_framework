@@ -159,6 +159,7 @@ class FxFrontController extends GetxController {
               Trns.error_facebook_sign_in_failed.val,
               snackPosition: SnackPosition.BOTTOM);
           break;
+        default:
       }
     } on FirebaseAuthException catch (e) {
       _handleError(e);
