@@ -7,10 +7,11 @@ import 'screens/front/widgets/front_slider_item.dart';
 
 /// A Calculator.
 class FlexusFramework {
-  static void init(String title, BaseInit init) {
+  static void init(String title, BaseInit init, bool enableAnalytics) {
     BaseBindings().dependencies();
     FlexusController.to.title.value = title;
     FlexusController.to.init = init;
+    FlexusController.to.enableAnalytics = enableAnalytics;
   }
 }
 
@@ -19,4 +20,5 @@ class FlexusController extends GetxController {
   var title = "".obs;
   List<FxFrontSliderItem> frontSliderItems = [];
   BaseInit? init;
+  bool enableAnalytics = false;
 }
