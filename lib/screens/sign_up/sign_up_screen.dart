@@ -27,6 +27,7 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                 flex: 2,
                 child: SingleChildScrollView(
                   child: Container(
+                    padding: EdgeInsets.only(top: 16.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
