@@ -2,6 +2,7 @@
 // Use of this source code is governed by a MIT license
 
 import 'dart:io';
+import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_flavor/flutter_flavor.dart';
@@ -111,7 +112,7 @@ class Util extends GetxController {
             radius: 50,
             backgroundColor: Colors.white,
             child: Text(
-              Util.to.getInitials(string: name!, limitTo: 2),
+              Util.to.getInitials(string: name ?? "-", limitTo: 2),
               style: TextStyle(
                   fontSize: 30, color: Theme.of(context!).primaryColor),
             )),
@@ -245,5 +246,28 @@ class Util extends GetxController {
       default:
         return mobile;
     }
+  }
+
+  String createNonce(int length) {
+    final random = Random();
+    final charCodes = List<int>.generate(length, (_) {
+      int codeUnit = 0;
+
+      switch (random.nextInt(3)) {
+        case 0:
+          codeUnit = random.nextInt(10) + 48;
+          break;
+        case 1:
+          codeUnit = random.nextInt(26) + 65;
+          break;
+        case 2:
+          codeUnit = random.nextInt(26) + 97;
+          break;
+      }
+
+      return codeUnit;
+    });
+
+    return String.fromCharCodes(charCodes);
   }
 }

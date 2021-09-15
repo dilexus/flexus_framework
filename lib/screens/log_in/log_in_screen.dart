@@ -21,63 +21,67 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
           () => LoadingOverlay(
             opacity: 0.0,
             isLoading: controller.isLoading.value,
-            child: Container(
-                child: Column(children: [
-              Expanded(
-                flex: 2,
-                child: SingleChildScrollView(
-                  child: Container(
-                    padding: EdgeInsets.only(top: 16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        LoginButton(
-                          Trns.sign_in_with_google.val,
-                          icon: Icon(
-                            FontAwesomeIcons.google,
-                            color: Colors.red,
-                            size: 24.0,
-                          ),
-                          onClick: () {
-                            controller.signInWithGoogle();
-                          },
+            child: SingleChildScrollView(
+              child: Container(
+                  child: Column(children: [
+                Container(
+                  padding: EdgeInsets.only(top: 16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      LoginButton(
+                        Trns.sign_in_with_google.val,
+                        icon: Icon(
+                          FontAwesomeIcons.google,
+                          color: Colors.red,
+                          size: 24.0,
                         ),
-                        LoginButton(
-                          Trns.sign_in_with_facebook.val,
-                          icon: Icon(
-                            FontAwesomeIcons.facebook,
-                            color: Colors.blue,
-                            size: 24.0,
-                          ),
-                          onClick: () {
-                            controller.signInWithFacebook();
-                          },
+                        onClick: () {
+                          controller.signInWithGoogle();
+                        },
+                      ),
+                      LoginButton(
+                        Trns.sign_in_with_facebook.val,
+                        icon: Icon(
+                          FontAwesomeIcons.facebook,
+                          color: Colors.blue,
+                          size: 24.0,
                         ),
-                        SizedBox(height: 4.h),
-                        Text("OR"),
-                      ],
-                    ),
+                        onClick: () {
+                          controller.signInWithFacebook();
+                        },
+                      ),
+                      LoginButton(
+                        Trns.sign_in_with_apple.val,
+                        icon: Icon(
+                          FontAwesomeIcons.apple,
+                          color: Colors.black,
+                          size: 24.0,
+                        ),
+                        onClick: () {
+                          controller.signInWithApple();
+                        },
+                      ),
+                      SizedBox(height: 4.h),
+                      Text("OR"),
+                    ],
                   ),
                 ),
-              ),
-              Expanded(
-                  flex: 5,
-                  child: SingleChildScrollView(
-                    child: CarouselSlider(
-                      carouselController: controller.loginSliderController,
-                      options: CarouselOptions(
-                          height: 60.h,
-                          viewportFraction: 1,
-                          initialPage: initialPage!,
-                          scrollPhysics: NeverScrollableScrollPhysics()),
-                      items: [
-                        FxLoginSlider(),
-                        FxVerifyEmailSlider(),
-                        FxForgotPasswordSlider()
-                      ],
-                    ),
-                  ))
-            ])),
+                CarouselSlider(
+                  carouselController: controller.loginSliderController,
+                  options: CarouselOptions(
+                      height: 60.h,
+                      viewportFraction: 1,
+                      initialPage: initialPage!,
+                      scrollPhysics: NeverScrollableScrollPhysics()),
+                  items: [
+                    FxLoginSlider(),
+                    FxVerifyEmailSlider(),
+                    FxForgotPasswordSlider()
+                  ],
+                )
+              ])),
+            ),
           ),
         ));
   }

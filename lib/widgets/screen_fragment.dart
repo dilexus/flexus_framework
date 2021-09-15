@@ -2,7 +2,7 @@ import 'package:focus_detector/focus_detector.dart';
 
 import '../../imports.dart';
 
-abstract class ScreenFragment<T> extends GetView<T>  {
+abstract class ScreenFragment<T> extends GetView<T> {
   T get controller => GetInstance().find<T>(tag: tag);
 
   @override
@@ -20,8 +20,7 @@ abstract class ScreenFragment<T> extends GetView<T>  {
 
   Widget create();
 
-  void onStart() {
-  }
+  void onStart() {}
 
   void onStop() {}
 
@@ -32,5 +31,4 @@ abstract class ScreenFragment<T> extends GetView<T>  {
   void onPause() {}
 
   void onResume() {}
-
 }
