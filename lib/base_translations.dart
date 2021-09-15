@@ -7,15 +7,14 @@ class BaseTranslations extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'en': {
-          Trns.sign_in.name: 'Log In',
-          Trns.sign_in_with_google.name: 'Log In with Google',
-          Trns.sign_in_with_facebook.name: 'Log In with Facebook',
-          Trns.sign_in_with_apple.name: 'Log In with Apple',
+          Trns.sign_in.name: 'Sign In',
+          Trns.sign_in_with_google.name: 'Sign In with Google',
+          Trns.sign_in_with_facebook.name: 'Sign In with Facebook',
+          Trns.sign_in_with_apple.name: 'Sign In with Apple',
           Trns.sign_up_with_google.name: 'Sign Up with Google',
           Trns.sign_up_with_facebook.name: 'Sign Up with Facebook',
           Trns.sign_up_with_apple.name: 'Sign Up with Apple',
-          Trns.sign_in.name: 'Log In',
-          Trns.sign_in.name: 'Log In',
+          Trns.sign_in.name: 'Sign In',
           Trns.sign_up.name: 'Sign Up',
           Trns.name.name: 'Name',
           Trns.username.name: 'Username',
@@ -34,7 +33,7 @@ class BaseTranslations extends Translations {
           Trns.verify_email.name: "Verify Email",
           Trns.verify.name: "Verify",
           Trns.next.name: "Next",
-          Trns.logout.name: "Logout",
+          Trns.logout.name: "Sign Out",
           Trns.reset_password.name: "Reset Password",
           Trns.welcome_name.name: "Welcome @name!",
           Trns.profile.name: "My Profile",
@@ -57,7 +56,7 @@ class BaseTranslations extends Translations {
           Trns.no.name: "No",
           Trns.reset_password_sent.name:
               "Reset password email sent to your email inbox",
-          Trns.logout_confirmation.name: "Are you sure you want to logout?",
+          Trns.logout_confirmation.name: "Are you sure you want to sign out?",
           Trns.error_no_user_found.name: "No user found for that email.",
           Trns.error_wrong_password.name:
               "Wrong password provided for that user.",
@@ -65,9 +64,9 @@ class BaseTranslations extends Translations {
           Trns.error_account_already_exist.name:
               "The account already exists for that email.",
           Trns.error_account_exist_with_same_email.name:
-              "An account already exists with the same email address but different front-in credentials. Login in using a provider associated with this email address.",
-          Trns.error_sign_in_failure.name: "Login in failure",
-          Trns.error_sign_up_failure.name: "Login in failure",
+              "An account already exists with the same email address but different front-in credentials. Sign in in using a provider associated with this email address.",
+          Trns.error_sign_in_failure.name: "Sign in in failure",
+          Trns.error_sign_up_failure.name: "Sign in in failure",
           Trns.error_reset_password_failed.name: "Failed to reset the password",
           Trns.error_google_sign_in_failed.name:
               "Failed to front in with Google.",
