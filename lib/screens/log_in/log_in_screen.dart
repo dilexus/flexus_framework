@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_overlay/loading_overlay.dart';
@@ -51,17 +53,18 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
                           controller.signInWithFacebook();
                         },
                       ),
-                      LoginButton(
-                        Trns.sign_in_with_apple.val,
-                        icon: Icon(
-                          FontAwesomeIcons.apple,
-                          color: Colors.black,
-                          size: 24.0,
+                      if (Platform.isIOS)
+                        LoginButton(
+                          Trns.sign_in_with_apple.val,
+                          icon: Icon(
+                            FontAwesomeIcons.apple,
+                            color: Colors.black,
+                            size: 24.0,
+                          ),
+                          onClick: () {
+                            controller.signInWithApple();
+                          },
                         ),
-                        onClick: () {
-                          controller.signInWithApple();
-                        },
-                      ),
                       SizedBox(height: 4.h),
                       Text("OR"),
                     ],
