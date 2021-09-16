@@ -23,8 +23,8 @@ class FxForgotPasswordSlider extends GetView<FxLogInController> {
       child: Theme(
         data: ThemeData().copyWith(
             colorScheme: ThemeData().colorScheme.copyWith(
-                primary: Util.to.getConfig("primary_color"),
-                secondary: Util.to.getConfig("accent_color"))),
+                primary: Util.to.getConfig("primaryColor"),
+                secondary: Util.to.getConfig("secondaryColor"))),
         child: FormBuilder(
           key: _formKey,
           child: Column(children: [
