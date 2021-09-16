@@ -21,8 +21,8 @@ class FxLoginSlider extends GetView<FxLogInController> {
       child: Theme(
         data: ThemeData().copyWith(
             colorScheme: ThemeData().colorScheme.copyWith(
-                primary: Util.to.getConfig("primary_color"),
-                secondary: Util.to.getConfig("accent_color"))),
+                primary: Util.to.getConfig("primaryColor"),
+                secondary: Util.to.getConfig("secondaryColor"))),
         child: FormBuilder(
           key: _formKey,
           child: Column(children: [
@@ -72,7 +72,7 @@ class FxLoginSlider extends GetView<FxLogInController> {
                     child: Text(
                       Trns.signUp.val,
                       style: TextStyle(
-                          color: Util.to.getConfig("primary_color"),
+                          color: Util.to.getConfig("primaryColor"),
                           fontWeight: FontWeight.bold),
                     ),
                     onTap: () {
@@ -89,7 +89,7 @@ class FxLoginSlider extends GetView<FxLogInController> {
                     child: Text(
                       Trns.reset.val,
                       style: TextStyle(
-                          color: Util.to.getConfig("primary_color"),
+                          color: Util.to.getConfig("primaryColor"),
                           fontWeight: FontWeight.bold),
                     ),
                     onTap: () {

@@ -13,7 +13,7 @@ import '../front/front_screen.dart';
 
 class FxSplashController extends GetxController {
   _startTimer() {
-    Future.delayed(Duration(seconds: Util.to.getConfig("splash_timer_seconds")),
+    Future.delayed(Duration(seconds: Util.to.getConfig("splashTimerSeconds")),
         () async {
       FirebaseAuth.instance.currentUser?.reload();
       var user = FirebaseAuth.instance.currentUser;

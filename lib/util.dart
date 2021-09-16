@@ -40,7 +40,7 @@ class Util extends GetxController {
   }
 
   Widget getHomeScreen() {
-    return Util.to.getConfig("home_screen");
+    return Util.to.getConfig("homeScreen");
   }
 
   setAuthUserDetails(AuthUser authUser, User user) {
