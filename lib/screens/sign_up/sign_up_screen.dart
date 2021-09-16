@@ -55,7 +55,7 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                       ),
                       if (Platform.isIOS)
                         LoginButton(
-                          Trns.signInWithApple.val,
+                          Trns.signUpWithApple.val,
                           icon: const Icon(
                             FontAwesomeIcons.apple,
                             color: Colors.black,
