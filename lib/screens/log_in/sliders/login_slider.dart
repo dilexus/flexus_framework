@@ -18,15 +18,10 @@ class FxLoginSlider extends GetView<FxLogInController> {
     return FxLoginSliderMaster(
       title: Trns.sign_in.val,
       child: Theme(
-        data: new ThemeData(
-          primaryColor: Util.to.getConfig("primary_color"),
-          accentColor: Util.to.getConfig("accent_color"),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              primary: Util.to.getConfig("primary_color"),
-            ),
-          ),
-        ),
+        data: ThemeData().copyWith(
+            colorScheme: ThemeData().colorScheme.copyWith(
+                primary: Util.to.getConfig("primary_color"),
+                secondary: Util.to.getConfig("accent_color"))),
         child: FormBuilder(
           key: _formKey,
           child: Column(children: [

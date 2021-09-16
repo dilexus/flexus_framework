@@ -30,7 +30,6 @@ class ScaffoldMaster extends StatelessWidget {
                   leading: leading,
                   title: Text(title),
                   actions: actions,
-                  backwardsCompatibility: false,
                   backgroundColor: backgroundColor ??
                       Theme.of(Get.context!).appBarTheme.backgroundColor,
                   foregroundColor: textColor ??

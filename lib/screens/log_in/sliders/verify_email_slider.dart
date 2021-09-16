@@ -28,16 +28,10 @@ class FxVerifyEmailSlider extends GetView<FxLogInController> {
                     .animateToPage(LoginSliders.login);
               },
         child: Theme(
-          data: new ThemeData(
-            primaryColor: Util.to.getConfig("primary_color"),
-            accentColor: Util.to.getConfig("accent_color"),
-            hintColor: Util.to.getConfig("primary_color"),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                primary: Util.to.getConfig("primary_color"),
-              ),
-            ),
-          ),
+          data: ThemeData().copyWith(
+              colorScheme: ThemeData().colorScheme.copyWith(
+                  primary: Util.to.getConfig("primary_color"),
+                  secondary: Util.to.getConfig("accent_color"))),
           child: FormBuilder(
             key: _formKey,
             child: Column(children: [
