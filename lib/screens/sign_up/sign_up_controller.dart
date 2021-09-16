@@ -36,7 +36,7 @@ class FxSignUpController extends FxLogInController {
                 .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
           } else {
             await user.sendEmailVerification();
-            Get.off(() => FxLoginScreen(LoginSliders.verify_email));
+            Get.off(() => FxLoginScreen(LoginSliders.verifyEmail));
           }
         });
     } on FirebaseAuthException catch (e) {
@@ -44,8 +44,7 @@ class FxSignUpController extends FxLogInController {
       Util.to.handleSignError(e);
     } catch (e) {
       isLoading.value = false;
-      Get.snackbar(
-          FlexusController.to.title.value, Trns.error_sign_up_failure.val,
+      Get.snackbar(FlexusController.to.title.value, Trns.errorSignUpFailure.val,
           snackPosition: SnackPosition.BOTTOM);
       Util.to.logger().e(e);
     }

@@ -8,7 +8,7 @@ class DialogBoxButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: new BoxConstraints(
+      constraints: const BoxConstraints(
         minHeight: 48,
         minWidth: 100,
       ),

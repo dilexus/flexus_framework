@@ -16,7 +16,7 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
   FxLoginScreen(this.initialPage);
   @override
   Widget create() {
-    return ScaffoldMaster(Trns.sign_in.val,
+    return ScaffoldMaster(Trns.signIn.val,
         backgroundColor: Colors.white,
         textColor: Colors.black,
         body: Obx(
@@ -24,16 +24,15 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
             opacity: 0.0,
             isLoading: controller.isLoading.value,
             child: SingleChildScrollView(
-              child: Container(
-                  child: Column(children: [
+              child: Column(children: [
                 Container(
-                  padding: EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.only(top: 16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       LoginButton(
-                        Trns.sign_in_with_google.val,
-                        icon: Icon(
+                        Trns.signInWithGoogle.val,
+                        icon: const Icon(
                           FontAwesomeIcons.google,
                           color: Colors.red,
                           size: 24.0,
@@ -43,8 +42,8 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
                         },
                       ),
                       LoginButton(
-                        Trns.sign_in_with_facebook.val,
-                        icon: Icon(
+                        Trns.signInWithFacebook.val,
+                        icon: const Icon(
                           FontAwesomeIcons.facebook,
                           color: Colors.blue,
                           size: 24.0,
@@ -55,8 +54,8 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
                       ),
                       if (Platform.isIOS)
                         LoginButton(
-                          Trns.sign_in_with_apple.val,
-                          icon: Icon(
+                          Trns.signInWithApple.val,
+                          icon: const Icon(
                             FontAwesomeIcons.apple,
                             color: Colors.black,
                             size: 24.0,
@@ -66,7 +65,7 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
                           },
                         ),
                       SizedBox(height: 4.h),
-                      Text("OR"),
+                      const Text("OR"),
                     ],
                   ),
                 ),
@@ -76,14 +75,14 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
                       height: 60.h,
                       viewportFraction: 1,
                       initialPage: initialPage!,
-                      scrollPhysics: NeverScrollableScrollPhysics()),
+                      scrollPhysics: const NeverScrollableScrollPhysics()),
                   items: [
                     FxLoginSlider(),
                     FxVerifyEmailSlider(),
                     FxForgotPasswordSlider()
                   ],
                 )
-              ])),
+              ]),
             ),
           ),
         ));

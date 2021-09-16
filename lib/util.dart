@@ -21,7 +21,7 @@ import 'models/auth_user.dart';
 class Util extends GetxController {
   static Util get to => Get.find();
 
-  var _logger = Logger(
+  final _logger = Logger(
       printer: PrettyPrinter(
     methodCount: 0,
     errorMethodCount: 5,
@@ -208,36 +208,36 @@ class Util extends GetxController {
     switch (e.code) {
       case "user-not-found":
         Util.to.showErrorSnackBar(
-            FlexusController.to.title.value, Trns.error_no_user_found.val);
+            FlexusController.to.title.value, Trns.errorNoUserFound.val);
         break;
       case "wrong-password":
         Util.to.showErrorSnackBar(
-            FlexusController.to.title.value, Trns.error_wrong_password.val);
+            FlexusController.to.title.value, Trns.errorWrongPassword.val);
         break;
       case "weak-password":
         Util.to.showErrorSnackBar(
-            FlexusController.to.title.value, Trns.error_weak_password.val);
+            FlexusController.to.title.value, Trns.errorWeakPassword.val);
         break;
       case "email-already-in-use":
-        Util.to.showErrorSnackBar(FlexusController.to.title.value,
-            Trns.error_account_already_exist.val);
+        Util.to.showErrorSnackBar(
+            FlexusController.to.title.value, Trns.errorAccountAlreadyExist.val);
         break;
       case "account-exists-with-different-credential":
         Util.to.showErrorSnackBar(FlexusController.to.title.value,
-            Trns.error_account_exist_with_same_email.val);
+            Trns.errorAccountExistWithSameEmail.val);
         break;
       case "too-many-requests":
         Util.to.showErrorSnackBar(FlexusController.to.title.value,
-            Trns.error_account_exist_with_same_email.val);
+            Trns.errorAccountExistWithSameEmail.val);
         break;
       default:
         Util.to.showErrorSnackBar(
-            FlexusController.to.title.value, Trns.error_sign_in_failure.val);
+            FlexusController.to.title.value, Trns.errorSignInFailure.val);
     }
   }
 
   dynamic getSizesForScreens({required dynamic mobile, dynamic tablet}) {
-    if (tablet == null) tablet = mobile;
+    tablet ??= mobile;
     switch (SizerUtil.deviceType) {
       case DeviceType.mobile:
         return mobile;

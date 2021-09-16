@@ -19,7 +19,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         body: Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -51,11 +51,10 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                       .map((FxFrontSliderItem sliderItem) {
                     return Builder(
                       builder: (BuildContext context) {
-                        return Container(
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
+                        return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
                               Image.asset(
                                 sliderItem.image,
                                 height: 30.h,
@@ -69,7 +68,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                               Text(sliderItem.description,
                                   textAlign: TextAlign.center,
                                   style: GoogleFonts.montserrat())
-                            ]));
+                            ]);
                       },
                     );
                   }).toList(),
@@ -88,7 +87,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                       () => Container(
                         width: 8.0,
                         height: 8.0,
-                        margin: EdgeInsets.symmetric(
+                        margin: const EdgeInsets.symmetric(
                             vertical: 8.0, horizontal: 4.0),
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -114,7 +113,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                       width: 75.w,
                       height: 48,
                       child: ElevatedButton(
-                        child: Text(Trns.sign_up.val),
+                        child: Text(Trns.signUp.val),
                         onPressed: () {
                           Get.to(() => FxSignUpScreen());
                         },
@@ -127,7 +126,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white, onPrimary: Colors.black),
-                        child: Text(Trns.sign_in.val),
+                        child: Text(Trns.signIn.val),
                         onPressed: () {
                           Get.to(() => FxLoginScreen(LoginSliders.login));
                         },

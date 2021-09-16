@@ -18,7 +18,7 @@ class LoginButton extends StatelessWidget {
               primary: Colors.white,
               onPrimary: Colors.black,
               shape: RoundedRectangleBorder(
-                side: BorderSide(width: 1.0, color: Colors.black),
+                side: const BorderSide(width: 1.0, color: Colors.black),
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),

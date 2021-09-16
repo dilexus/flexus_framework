@@ -27,7 +27,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
   @override
   Widget create() {
     return ScaffoldMaster(
-      Trns.update_profile.val,
+      Trns.updateProfile.val,
       backgroundColor: Colors.white,
       textColor: Colors.black,
       body: Obx(
@@ -37,7 +37,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
           child: Builder(builder: (context) {
             return SingleChildScrollView(
               child: Container(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Theme(
                   data: ThemeData().copyWith(
                       colorScheme: ThemeData().colorScheme.copyWith(
@@ -46,7 +46,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                   child: FormBuilder(
                     key: _formKey,
                     child: Column(children: [
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Stack(
                         alignment: Alignment.center,
                         children: [
@@ -60,30 +60,30 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                           if (AuthService.to.authUser.value.authType ==
                               AuthType.email)
                             Padding(
-                              padding: EdgeInsets.only(left: 100),
+                              padding: const EdgeInsets.only(left: 100),
                               child: ElevatedButton(
                                 onPressed: _readPhoto,
-                                child: Icon(
+                                child: const Icon(
                                   Icons.add_a_photo,
                                   color: Colors.white,
                                   size: 16,
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  shape: CircleBorder(),
+                                  shape: const CircleBorder(),
                                   primary: Theme.of(Get.context!).primaryColor,
                                 ),
                               ),
                             )
                         ],
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text(AuthService.to.authUser.value.email!,
-                          style: TextStyle(color: Colors.black)),
-                      SizedBox(height: 16),
+                          style: const TextStyle(color: Colors.black)),
+                      const SizedBox(height: 16),
                       /*
                         Account Section
                         */
-                      FormFieldSeparator(Trns.account_details.val),
+                      FormFieldSeparator(Trns.accountDetails.val),
                       TextInput(
                           name: 'name',
                           label: Trns.name.val,
@@ -97,7 +97,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                       _getGenderTextField(context),
                       TextDateTimePicker(
                         name: 'date_of_birth',
-                        label: Trns.date_of_birth.val,
+                        label: Trns.dateOfBirth.val,
                         inputType: InputType.date,
                         icon: Icons.date_range_outlined,
                         initialValue: AuthService.to.authUser.value.dateOfBirth,
@@ -124,14 +124,14 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                             FormBuilderValidators.maxLength(context, 50),
                             (val) {
                               if (val != null && val.length < 8) {
-                                return Trns.warning_minimum_password_length.val;
+                                return Trns.warningMinimumPasswordLength.val;
                               }
                               return null;
                             }
                           ])),
                       TextInput(
                           name: 'confirm_password',
-                          label: Trns.confirm_password.val,
+                          label: Trns.confirmPassword.val,
                           icon: Icons.vpn_key,
                           enabled: AuthService.to.authUser.value.authType ==
                               AuthType.email,
@@ -142,17 +142,17 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                               if (_formKey.currentState!.fields['password']
                                       ?.value !=
                                   val) {
-                                return Trns.warning_passwords_not_matching.val;
+                                return Trns.warningPasswordsNotMatching.val;
                               }
                               return null;
                             }
                           ])),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       ConstrainedBox(
                         constraints: BoxConstraints.tightFor(
                             width: Get.width, height: 48),
                         child: ElevatedButton(
-                          child: Text(Trns.update_profile.val),
+                          child: Text(Trns.updateProfile.val),
                           onPressed: () {
                             profileController.isLoading.value = true;
                             controller.updateProfile(_formKey);
@@ -174,7 +174,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
     Gender? gender = AuthService.to.authUser.value.gender;
     var name = "gender";
     var label = Trns.gender.val;
-    var hint = Trns.select_the_gender.val;
+    var hint = Trns.selectTheGender.val;
     var icon = Icons.attribution_outlined;
     var items = ["male", "female"];
     var enabled = gender != null ? false : true;
@@ -210,52 +210,54 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
         title: FlexusController.to.title.value,
         content: Column(
           children: [
-            Text("Please select the source"),
-            SizedBox(height: 16),
+            const Text("Please select the source"),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   children: [
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 64, minHeight: 64),
+                      constraints:
+                          const BoxConstraints(minWidth: 64, minHeight: 64),
                       child: ElevatedButton(
                         onPressed: () => _getImage(ImageSource.camera),
-                        child: Icon(
+                        child: const Icon(
                           Icons.camera_alt,
                           color: Colors.white,
                           size: 40,
                         ),
                         style: ElevatedButton.styleFrom(
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           primary: Theme.of(Get.context!).primaryColor,
                         ),
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text("Camera")
+                    const SizedBox(height: 8),
+                    const Text("Camera")
                   ],
                 ),
-                SizedBox(width: 32),
+                const SizedBox(width: 32),
                 Column(
                   children: [
                     ConstrainedBox(
-                      constraints: BoxConstraints(minWidth: 64, minHeight: 64),
+                      constraints:
+                          const BoxConstraints(minWidth: 64, minHeight: 64),
                       child: ElevatedButton(
                         onPressed: () => _getImage(ImageSource.gallery),
-                        child: Icon(
+                        child: const Icon(
                           Icons.photo,
                           color: Colors.white,
                           size: 40,
                         ),
                         style: ElevatedButton.styleFrom(
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           primary: Theme.of(Get.context!).primaryColor,
                         ),
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text("Gallery")
+                    const SizedBox(height: 8),
+                    const Text("Gallery")
                   ],
                 )
               ],
@@ -274,13 +276,13 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
         aspectRatioPresets: [
           CropAspectRatioPreset.square,
         ],
-        androidUiSettings: AndroidUiSettings(
+        androidUiSettings: const AndroidUiSettings(
             toolbarTitle: "Crop Image",
             toolbarColor: Colors.black,
             toolbarWidgetColor: Colors.white,
             initAspectRatio: CropAspectRatioPreset.square,
             lockAspectRatio: true),
-        iosUiSettings: IOSUiSettings(
+        iosUiSettings: const IOSUiSettings(
           minimumAspectRatio: 1.0,
         )));
     controller.imageFile.value = File(croppedFile!.path);

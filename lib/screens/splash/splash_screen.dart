@@ -8,12 +8,10 @@ class FxSplashScreen extends ScreenMaster<FxSplashController> {
   @override
   Widget create() {
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: Image.asset(
-            "assets/images/logo_1024.png",
-            width: 200,
-          ),
+      body: Center(
+        child: Image.asset(
+          "assets/images/logo_1024.png",
+          width: 200,
         ),
       ),
     );

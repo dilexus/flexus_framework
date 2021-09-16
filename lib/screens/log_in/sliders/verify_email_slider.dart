@@ -20,7 +20,7 @@ class FxVerifyEmailSlider extends GetView<FxLogInController> {
     _callTimer();
     return Obx(
       () => FxLoginSliderMaster(
-        title: Trns.verify_email.val,
+        title: Trns.verifyEmail.val,
         onBackPressed: AuthService.to.isEmailVerified.value
             ? null
             : () {
@@ -36,11 +36,11 @@ class FxVerifyEmailSlider extends GetView<FxLogInController> {
             key: _formKey,
             child: Column(children: [
               AuthService.to.isEmailVerified.value
-                  ? Text(Trns.email_after_verified.val,
+                  ? Text(Trns.emailAfterVerified.val,
                       textAlign: TextAlign.center)
-                  : Text(Trns.email_is_being_verified.val,
+                  : Text(Trns.emailIsBeingVerified.val,
                       textAlign: TextAlign.center),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               ConstrainedBox(
                 constraints:
                     BoxConstraints.tightFor(width: Get.width, height: 48),
@@ -63,7 +63,7 @@ class FxVerifyEmailSlider extends GetView<FxLogInController> {
   }
 
   void _callTimer() {
-    Timer.periodic(Duration(seconds: 5), (timer) async {
+    Timer.periodic(const Duration(seconds: 5), (timer) async {
       FirebaseAuth.instance.currentUser!.reload();
       var user = FirebaseAuth.instance.currentUser;
       if (user != null) {

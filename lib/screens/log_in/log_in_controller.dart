@@ -40,7 +40,7 @@ class FxLogInController extends GetxController {
         } else {
           await user.sendEmailVerification();
           isLoading.value = false;
-          loginSliderController.jumpToPage(LoginSliders.verify_email);
+          loginSliderController.jumpToPage(LoginSliders.verifyEmail);
         }
       }
     } on FirebaseAuthException catch (e) {
@@ -48,8 +48,7 @@ class FxLogInController extends GetxController {
       Util.to.handleSignError(e);
     } catch (e) {
       isLoading.value = false;
-      Get.snackbar(
-          FlexusController.to.title.value, Trns.error_sign_up_failure.val,
+      Get.snackbar(FlexusController.to.title.value, Trns.errorSignUpFailure.val,
           snackPosition: SnackPosition.BOTTOM);
       Util.to.logger().e(e);
     }
@@ -80,7 +79,7 @@ class FxLogInController extends GetxController {
       Util.to.logger().e(e);
       isLoading.value = false;
       Get.snackbar(
-          FlexusController.to.title.value, Trns.error_google_sign_in_failed.val,
+          FlexusController.to.title.value, Trns.errorGoogleSignInFailed.val,
           snackPosition: SnackPosition.BOTTOM);
     }
   }
@@ -107,7 +106,7 @@ class FxLogInController extends GetxController {
                   .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
             } else {
               await user.sendEmailVerification();
-              loginSliderController.jumpToPage(LoginSliders.verify_email);
+              loginSliderController.jumpToPage(LoginSliders.verifyEmail);
             }
           }
           break;
@@ -115,14 +114,14 @@ class FxLogInController extends GetxController {
           Util.to.logger().e(result.message);
           isLoading.value = false;
           Get.snackbar(FlexusController.to.title.value,
-              Trns.error_facebook_sign_in_canceled.val,
+              Trns.errorFacebookSignInCanceled.val,
               snackPosition: SnackPosition.BOTTOM);
           break;
         case LoginStatus.failed:
           Util.to.logger().e(result.message);
           isLoading.value = false;
           Get.snackbar(FlexusController.to.title.value,
-              Trns.error_facebook_sign_in_failed.val,
+              Trns.errorFacebookSignInFailed.val,
               snackPosition: SnackPosition.BOTTOM);
           break;
         default:
@@ -132,8 +131,7 @@ class FxLogInController extends GetxController {
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
-      Get.snackbar(
-          FlexusController.to.title.value, Trns.error_sign_up_failure.val,
+      Get.snackbar(FlexusController.to.title.value, Trns.errorSignUpFailure.val,
           snackPosition: SnackPosition.BOTTOM);
       Util.to.logger().e(e);
     }
@@ -187,7 +185,7 @@ class FxLogInController extends GetxController {
             .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
       } else {
         await user.sendEmailVerification();
-        loginSliderController.jumpToPage(LoginSliders.verify_email);
+        loginSliderController.jumpToPage(LoginSliders.verifyEmail);
       }
     }
   }
@@ -195,14 +193,13 @@ class FxLogInController extends GetxController {
   Future<void> resetPassword(String email) async {
     try {
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      Get.snackbar(
-          FlexusController.to.title.value, Trns.reset_password_sent.val,
+      Get.snackbar(FlexusController.to.title.value, Trns.resetPasswordSent.val,
           snackPosition: SnackPosition.BOTTOM);
       loginSliderController.jumpToPage(LoginSliders.login);
     } catch (e) {
       Util.to.logger().e(e);
       Get.snackbar(
-          FlexusController.to.title.value, Trns.error_reset_password_failed.val,
+          FlexusController.to.title.value, Trns.errorResetPasswordFailed.val,
           snackPosition: SnackPosition.BOTTOM);
     }
   }

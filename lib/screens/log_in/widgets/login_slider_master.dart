@@ -24,7 +24,7 @@ class FxLoginSliderMaster extends GetView<FxFrontController> {
                 Align(
                   alignment: Alignment.topLeft,
                   child: IconButton(
-                    icon: Icon(Icons.arrow_back_rounded),
+                    icon: const Icon(Icons.arrow_back_rounded),
                     onPressed: onBackPressed as void Function()?,
                   ),
                 ),
@@ -38,7 +38,7 @@ class FxLoginSliderMaster extends GetView<FxFrontController> {
               ),
             ],
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           child!
         ],
       ),

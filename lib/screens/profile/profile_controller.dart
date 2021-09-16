@@ -51,8 +51,9 @@ class FxProfileController extends GetxController {
             AuthService.to.updateUser(
                 AuthService.to.authUser.value.uuid, gender, dateOfBirth);
             AuthService.to.authUser.value.gender = gender;
-            if (dateOfBirth != null)
+            if (dateOfBirth != null) {
               AuthService.to.authUser.value.dateOfBirth = dateOfBirth;
+            }
           }
           isLoading.value = false;
           Get.back();

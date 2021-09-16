@@ -16,7 +16,7 @@ class FxLoginSlider extends GetView<FxLogInController> {
   @override
   Widget build(BuildContext context) {
     return FxLoginSliderMaster(
-      title: Trns.sign_in.val,
+      title: Trns.signIn.val,
       child: Theme(
         data: ThemeData().copyWith(
             colorScheme: ThemeData().colorScheme.copyWith(
@@ -44,12 +44,12 @@ class FxLoginSlider extends GetView<FxLogInController> {
                   FormBuilderValidators.required(context),
                   FormBuilderValidators.maxLength(context, 50),
                 ])),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ConstrainedBox(
               constraints:
                   BoxConstraints.tightFor(width: Get.width, height: 48),
               child: ElevatedButton(
-                child: Text(Trns.sign_in.val),
+                child: Text(Trns.signIn.val),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     var email = _formKey.currentState!.fields['email']?.value;
@@ -62,14 +62,14 @@ class FxLoginSlider extends GetView<FxLogInController> {
                 },
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(Trns.dont_have_an_account.val),
+                Text(Trns.dontHaveAnAccount.val),
                 InkWell(
                     child: Text(
-                      Trns.sign_up.val,
+                      Trns.signUp.val,
                       style: TextStyle(
                           color: Util.to.getConfig("primary_color"),
                           fontWeight: FontWeight.bold),
@@ -79,11 +79,11 @@ class FxLoginSlider extends GetView<FxLogInController> {
                     }),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(Trns.forgot_your_password.val),
+                Text(Trns.forgotYourPassword.val),
                 InkWell(
                     child: Text(
                       Trns.reset.val,
@@ -93,7 +93,7 @@ class FxLoginSlider extends GetView<FxLogInController> {
                     ),
                     onTap: () {
                       controller.loginSliderController
-                          .jumpToPage(LoginSliders.forgot_password);
+                          .jumpToPage(LoginSliders.forgotPassword);
                     }),
               ],
             ),

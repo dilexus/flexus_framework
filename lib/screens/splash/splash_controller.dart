@@ -13,8 +13,8 @@ import '../front/front_screen.dart';
 
 class FxSplashController extends GetxController {
   _startTimer() {
-    new Future.delayed(
-        Duration(seconds: Util.to.getConfig("splash_timer_seconds")), () async {
+    Future.delayed(Duration(seconds: Util.to.getConfig("splash_timer_seconds")),
+        () async {
       FirebaseAuth.instance.currentUser?.reload();
       var user = FirebaseAuth.instance.currentUser;
       if (user != null) {
@@ -27,7 +27,7 @@ class FxSplashController extends GetxController {
           Util.to.logger().d(user);
         } else {
           await user.sendEmailVerification();
-          Get.off(() => FxLoginScreen(LoginSliders.verify_email));
+          Get.off(() => FxLoginScreen(LoginSliders.verifyEmail));
           Util.to.logger().i("User found, email is not verified");
           Util.to.logger().d(user);
         }

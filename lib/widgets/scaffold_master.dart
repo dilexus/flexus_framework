@@ -24,9 +24,8 @@ class ScaffoldMaster extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          appBar: appBar != null
-              ? appBar
-              : AppBar(
+          appBar: appBar ??
+              AppBar(
                   leading: leading,
                   title: Text(title),
                   actions: actions,

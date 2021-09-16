@@ -14,7 +14,7 @@ class FxForgotPasswordSlider extends GetView<FxLogInController> {
   @override
   Widget build(BuildContext context) {
     return FxLoginSliderMaster(
-      title: Trns.reset_password.val,
+      title: Trns.resetPassword.val,
       onBackPressed: () {
         controller.loginSliderController.jumpToPage(LoginSliders.login);
       },
@@ -36,7 +36,7 @@ class FxForgotPasswordSlider extends GetView<FxLogInController> {
                   FormBuilderValidators.email(context),
                   FormBuilderValidators.maxLength(context, 50),
                 ])),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             ConstrainedBox(
               constraints:
                   BoxConstraints.tightFor(width: Get.width, height: 48),

@@ -27,7 +27,7 @@ class TextInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 8, bottom: 8),
+      padding: const EdgeInsets.only(top: 8, bottom: 8),
       child: FormBuilderTextField(
         controller: controller,
         name: name!,
@@ -38,11 +38,11 @@ class TextInput extends StatelessWidget {
           labelStyle: TextStyle(
               color:
                   enabled ? Colors.black54 : Theme.of(context).disabledColor),
-          contentPadding: EdgeInsets.all(16),
+          contentPadding: const EdgeInsets.all(16),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Theme.of(context).primaryColor),
           ),
-          border: new OutlineInputBorder(borderSide: new BorderSide()),
+          border: const OutlineInputBorder(borderSide: BorderSide()),
         ),
         validator: validator,
         obscureText: obscureText!,

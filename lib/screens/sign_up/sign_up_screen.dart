@@ -16,7 +16,7 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
 
   @override
   Widget create() {
-    return ScaffoldMaster(Trns.sign_up.val,
+    return ScaffoldMaster(Trns.signUp.val,
         backgroundColor: Colors.white,
         textColor: Colors.black,
         body: Obx(
@@ -24,16 +24,15 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
             opacity: 0.0,
             isLoading: controller.isLoading.value,
             child: SingleChildScrollView(
-              child: Container(
-                  child: Column(children: [
+              child: Column(children: [
                 Container(
-                  padding: EdgeInsets.only(top: 16.0),
+                  padding: const EdgeInsets.only(top: 16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       LoginButton(
-                        Trns.sign_up_with_google.val,
-                        icon: Icon(
+                        Trns.signUpWithGoogle.val,
+                        icon: const Icon(
                           FontAwesomeIcons.google,
                           color: Colors.red,
                           size: 24.0,
@@ -43,8 +42,8 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                         },
                       ),
                       LoginButton(
-                        Trns.sign_up_with_facebook.val,
-                        icon: Icon(
+                        Trns.signUpWithFacebook.val,
+                        icon: const Icon(
                           FontAwesomeIcons.facebook,
                           color: Colors.blue,
                           size: 24.0,
@@ -55,8 +54,8 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                       ),
                       if (Platform.isIOS)
                         LoginButton(
-                          Trns.sign_in_with_apple.val,
-                          icon: Icon(
+                          Trns.signInWithApple.val,
+                          icon: const Icon(
                             FontAwesomeIcons.apple,
                             color: Colors.black,
                             size: 24.0,
@@ -66,12 +65,12 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                           },
                         ),
                       SizedBox(height: 4.h),
-                      Text("OR"),
+                      const Text("OR"),
                     ],
                   ),
                 ),
                 Container(
-                    padding: EdgeInsets.only(left: 32.0, right: 32.0),
+                    padding: const EdgeInsets.only(left: 32.0, right: 32.0),
                     child: Column(
                       children: [
                         Stack(
@@ -80,14 +79,14 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                               alignment: Alignment.center,
                               heightFactor: 2,
                               child: Text(
-                                Trns.sign_up.val,
+                                Trns.signUp.val,
                                 style:
                                     Theme.of(Get.context!).textTheme.headline6,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Theme(
                           data: ThemeData().copyWith(
                               colorScheme: ThemeData().colorScheme.copyWith(
@@ -135,7 +134,7 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                                   ])),
                               TextInput(
                                   name: 'confirm_password',
-                                  label: Trns.confirm_password.val,
+                                  label: Trns.confirmPassword.val,
                                   icon: Icons.vpn_key,
                                   obscureText: true,
                                   validator: FormBuilderValidators.compose([
@@ -150,17 +149,17 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                                               .fields['password']?.value !=
                                           val) {
                                         return Trns
-                                            .warning_passwords_not_matching.val;
+                                            .warningPasswordsNotMatching.val;
                                       }
                                       return null;
                                     }
                                   ])),
-                              SizedBox(height: 16),
+                              const SizedBox(height: 16),
                               SizedBox(
                                 width: 75.w,
                                 height: 48,
                                 child: ElevatedButton(
-                                  child: Text(Trns.sign_up.val),
+                                  child: Text(Trns.signUp.val),
                                   onPressed: () {
                                     if (_formKey.currentState!.validate()) {
                                       var name = _formKey
@@ -177,14 +176,14 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                                   },
                                 ),
                               ),
-                              SizedBox(height: 16),
+                              const SizedBox(height: 16),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(Trns.already_have_an_account.val),
+                                  Text(Trns.alreadyHaveAnAccount.val),
                                   InkWell(
                                       child: Text(
-                                        Trns.sign_in.val,
+                                        Trns.signIn.val,
                                         style: TextStyle(
                                             color: Util.to
                                                 .getConfig("primary_color"),
@@ -201,7 +200,7 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                         ),
                       ],
                     ))
-              ])),
+              ]),
             ),
           ),
         ));
