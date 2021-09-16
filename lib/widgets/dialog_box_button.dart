@@ -3,7 +3,8 @@ import '../../imports.dart';
 class DialogBoxButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onPressed;
-  DialogBoxButton(this.buttonText, this.onPressed);
+  const DialogBoxButton(this.buttonText, this.onPressed, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

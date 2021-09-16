@@ -13,6 +13,7 @@ import 'sign_up_controller.dart';
 
 class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
   final _formKey = GlobalKey<FormBuilderState>();
+  FxSignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget create() {
@@ -190,8 +191,8 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                       onTap: () {
-                                        Get.off(() =>
-                                            FxLoginScreen(LoginSliders.login));
+                                        Get.off(() => const FxLoginScreen(
+                                            LoginSliders.login));
                                       }),
                                 ],
                               ),

@@ -4,7 +4,9 @@ class LoginButton extends StatelessWidget {
   final String name;
   final VoidCallback onClick;
   final Icon icon;
-  LoginButton(this.name, {required this.icon, required this.onClick});
+  const LoginButton(this.name,
+      {required this.icon, required this.onClick, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

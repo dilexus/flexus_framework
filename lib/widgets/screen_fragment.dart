@@ -3,6 +3,9 @@ import 'package:focus_detector/focus_detector.dart';
 import '../../imports.dart';
 
 abstract class ScreenFragment<T> extends GetView<T> {
+  const ScreenFragment({Key? key}) : super(key: key);
+
+  @override
   T get controller => GetInstance().find<T>(tag: tag);
 
   @override

@@ -13,6 +13,7 @@ import 'front_controller.dart';
 import 'widgets/front_slider_item.dart';
 
 class FxFrontScreen extends ScreenMaster<FxFrontController> {
+  const FxFrontScreen({Key? key}) : super(key: key);
   @override
   Widget create() {
     return SafeArea(
@@ -23,7 +24,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 height: 10.h,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +38,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 40.h,
                 child: CarouselSlider(
                   carouselController: controller.loginSliderController,
@@ -105,7 +106,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                 }).toList(),
               ),
               SizedBox(height: 4.h),
-              Container(
+              SizedBox(
                 height: 20.h,
                 child: Column(
                   children: [
@@ -128,7 +129,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                             primary: Colors.white, onPrimary: Colors.black),
                         child: Text(Trns.signIn.val),
                         onPressed: () {
-                          Get.to(() => FxLoginScreen(LoginSliders.login));
+                          Get.to(() => const FxLoginScreen(LoginSliders.login));
                         },
                       ),
                     )

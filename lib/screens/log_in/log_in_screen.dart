@@ -13,7 +13,7 @@ import 'sliders/verify_email_slider.dart';
 
 class FxLoginScreen extends ScreenMaster<FxLogInController> {
   final int? initialPage;
-  FxLoginScreen(this.initialPage);
+  const FxLoginScreen(this.initialPage, {Key? key}) : super(key: key);
   @override
   Widget create() {
     return ScaffoldMaster(Trns.signIn.val,

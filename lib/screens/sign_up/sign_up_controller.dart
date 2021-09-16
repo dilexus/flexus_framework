@@ -13,8 +13,6 @@ import '../../screens/log_in/log_in_screen.dart';
 import '../../services/auth_service.dart';
 
 class FxSignUpController extends FxLogInController {
-  var isLoading = false.obs;
-
   Future<void> signUpWithEmailAndPassword(
       String email, String password, String? name) async {
     isLoading.value = true;
@@ -36,7 +34,7 @@ class FxSignUpController extends FxLogInController {
                 .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
           } else {
             await user.sendEmailVerification();
-            Get.off(() => FxLoginScreen(LoginSliders.verifyEmail));
+            Get.off(() => const FxLoginScreen(LoginSliders.verifyEmail));
           }
         });
     } on FirebaseAuthException catch (e) {

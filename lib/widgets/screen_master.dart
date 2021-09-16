@@ -4,9 +4,12 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 
 import '../flexus_framework.dart';
+import '../imports.dart';
 import 'screen_fragment.dart';
 
 abstract class ScreenMaster<T> extends ScreenFragment<T> {
+  const ScreenMaster({Key? key}) : super(key: key);
+
   @override
   void onStart() {
     super.onStart();

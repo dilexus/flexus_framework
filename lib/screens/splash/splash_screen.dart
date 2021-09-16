@@ -5,6 +5,8 @@ import '../../../imports.dart';
 import 'splash_controller.dart';
 
 class FxSplashScreen extends ScreenMaster<FxSplashController> {
+  const FxSplashScreen({Key? key}) : super(key: key);
+
   @override
   Widget create() {
     return Scaffold(

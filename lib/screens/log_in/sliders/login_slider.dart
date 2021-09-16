@@ -12,6 +12,7 @@ import '../widgets/login_slider_master.dart';
 
 class FxLoginSlider extends GetView<FxLogInController> {
   final _formKey = GlobalKey<FormBuilderState>();
+  FxLoginSlider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

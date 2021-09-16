@@ -11,14 +11,16 @@ class ScaffoldMaster extends StatelessWidget {
   final Color? textColor;
   final AppBar? appBar;
   final List<Widget>? actions;
-  ScaffoldMaster(this.title,
+  const ScaffoldMaster(this.title,
       {this.drawer,
       this.backgroundColor,
       this.textColor,
       this.leading,
       this.appBar,
       this.actions,
-      required this.body});
+      required this.body,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

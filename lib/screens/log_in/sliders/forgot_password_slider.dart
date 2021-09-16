@@ -11,6 +11,8 @@ import '../widgets/login_slider_master.dart';
 
 class FxForgotPasswordSlider extends GetView<FxLogInController> {
   final _formKey = GlobalKey<FormBuilderState>();
+
+  FxForgotPasswordSlider({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return FxLoginSliderMaster(

@@ -3,7 +3,7 @@ import '../../imports.dart';
 class FormFieldSeparator extends StatelessWidget {
   final String name;
 
-  FormFieldSeparator(this.name);
+  const FormFieldSeparator(this.name, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -15,6 +15,8 @@ import '../widgets/login_slider_master.dart';
 class FxVerifyEmailSlider extends GetView<FxLogInController> {
   final _formKey = GlobalKey<FormBuilderState>();
 
+  FxVerifyEmailSlider({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     _callTimer();

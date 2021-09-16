@@ -24,6 +24,8 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
   final FxProfileController profileController = Get.put(FxProfileController());
   final imagePicker = ImagePicker();
 
+  FxProfileScreen({Key? key}) : super(key: key);
+
   @override
   Widget create() {
     return ScaffoldMaster(
