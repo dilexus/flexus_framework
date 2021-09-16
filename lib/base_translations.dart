@@ -8,12 +8,12 @@ class BaseTranslations extends Translations {
   Map<String, Map<String, String>> get keys => {
         'en': {
           Trns.signIn.name: 'Sign In',
-          Trns.signInWithGoogle.name: 'Sign In with Google',
-          Trns.signInWithFacebook.name: 'Sign In with Facebook',
-          Trns.signInWithApple.name: 'Sign In with Apple',
-          Trns.signUpWithGoogle.name: 'Sign Up with Google',
-          Trns.signUpWithFacebook.name: 'Sign Up with Facebook',
-          Trns.signUpWithApple.name: 'Sign Up with Apple',
+          Trns.signInWithGoogle.name: 'Sign in with Google',
+          Trns.signInWithFacebook.name: 'Sign in with Facebook',
+          Trns.signInWithApple.name: 'Sign in with Apple',
+          Trns.signUpWithGoogle.name: 'Sign up with Google',
+          Trns.signUpWithFacebook.name: 'Sign up with Facebook',
+          Trns.signUpWithApple.name: 'Sign up with Apple',
           Trns.signIn.name: 'Sign In',
           Trns.signUp.name: 'Sign Up',
           Trns.name.name: 'Name',
