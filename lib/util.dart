@@ -114,7 +114,8 @@ class Util extends GetxController {
             child: Text(
               Util.to.getInitials(string: name ?? "-", limitTo: 2),
               style: TextStyle(
-                  fontSize: 30, color: Theme.of(context!).primaryColor),
+                  fontSize: 30,
+                  color: Theme.of(Get.context!).colorScheme.primary),
             )),
       );
     }

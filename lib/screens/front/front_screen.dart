@@ -95,7 +95,9 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                             color: (Theme.of(Get.context!).brightness ==
                                         Brightness.dark
                                     ? Colors.white
-                                    : Theme.of(Get.context!).primaryColor)
+                                    : Theme.of(Get.context!)
+                                        .colorScheme
+                                        .primary)
                                 .withOpacity(
                                     controller.currentSlider.value == entry.key
                                         ? 0.9

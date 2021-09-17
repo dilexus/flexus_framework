@@ -72,7 +72,8 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                                 ),
                                 style: ElevatedButton.styleFrom(
                                   shape: const CircleBorder(),
-                                  primary: Theme.of(Get.context!).primaryColor,
+                                  primary:
+                                      Theme.of(context).colorScheme.primary,
                                 ),
                               ),
                             )
@@ -231,7 +232,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                         ),
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
-                          primary: Theme.of(Get.context!).primaryColor,
+                          primary: Theme.of(Get.context!).colorScheme.primary,
                         ),
                       ),
                     ),
@@ -254,7 +255,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                         ),
                         style: ElevatedButton.styleFrom(
                           shape: const CircleBorder(),
-                          primary: Theme.of(Get.context!).primaryColor,
+                          primary: Theme.of(Get.context!).colorScheme.primary,
                         ),
                       ),
                     ),

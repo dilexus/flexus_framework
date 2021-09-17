@@ -37,7 +37,7 @@ class TextDropdown extends StatelessWidget {
         decoration: InputDecoration(
             labelStyle: TextStyle(
               color: enabled
-                  ? Theme.of(context).primaryColor
+                  ? Theme.of(context).colorScheme.primary
                   : Theme.of(context).disabledColor,
             ),
             labelText: label,
@@ -45,7 +45,7 @@ class TextDropdown extends StatelessWidget {
             border: const OutlineInputBorder(borderSide: BorderSide()),
             prefixIcon: Icon(icon,
                 color: enabled
-                    ? Theme.of(context).primaryColor
+                    ? Theme.of(context).colorScheme.primary
                     : Theme.of(context).disabledColor)),
         allowClear: allowClear,
         hint: Text(hint!),
