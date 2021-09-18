@@ -11,6 +11,8 @@ class ScaffoldMaster extends StatelessWidget {
   final Color? textColor;
   final AppBar? appBar;
   final List<Widget>? actions;
+  final bool extendBody;
+  final bool extendBodyBehindAppBar;
   const ScaffoldMaster(this.title,
       {this.drawer,
       this.backgroundColor,
@@ -18,6 +20,8 @@ class ScaffoldMaster extends StatelessWidget {
       this.leading,
       this.appBar,
       this.actions,
+      this.extendBody = false,
+      this.extendBodyBehindAppBar = false,
       required this.body,
       Key? key})
       : super(key: key);
@@ -26,6 +30,8 @@ class ScaffoldMaster extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+          extendBody: extendBody,
+          extendBodyBehindAppBar: extendBodyBehindAppBar,
           appBar: appBar ??
               AppBar(
                   leading: leading,
