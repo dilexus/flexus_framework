@@ -17,6 +17,6 @@ enum Gender { male, female }
 
 extension GenderParseToString on Gender {
   String toShortString() {
-    return this.toString().split('.').last;
+    return toString().split('.').last;
   }
 }

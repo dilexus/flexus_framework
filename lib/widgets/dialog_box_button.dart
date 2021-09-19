@@ -3,12 +3,13 @@ import '../../imports.dart';
 class DialogBoxButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onPressed;
-  DialogBoxButton(this.buttonText, this.onPressed);
+  const DialogBoxButton(this.buttonText, this.onPressed, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: new BoxConstraints(
+      constraints: const BoxConstraints(
         minHeight: 48,
         minWidth: 100,
       ),
@@ -16,8 +17,8 @@ class DialogBoxButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           primary: Colors.white,
-          onPrimary: Theme.of(Get.context!).primaryColor,
-          elevation: 0,
+          onPrimary: Theme.of(context).colorScheme.primary,
+          elevation: 1,
         ),
         child: Text(
           buttonText,

@@ -5,15 +5,15 @@ import '../../../imports.dart';
 import 'splash_controller.dart';
 
 class FxSplashScreen extends ScreenMaster<FxSplashController> {
+  const FxSplashScreen({Key? key}) : super(key: key);
+
   @override
   Widget create() {
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: Image.asset(
-            "assets/logos/logo_1024.png",
-            width: 200,
-          ),
+      body: Center(
+        child: Image.asset(
+          "assets/images/logo_1024.png",
+          width: 200,
         ),
       ),
     );

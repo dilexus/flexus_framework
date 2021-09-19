@@ -30,19 +30,23 @@ class TextDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 16, bottom: 16),
+      padding: const EdgeInsets.only(top: 16, bottom: 16),
       child: FormBuilderDropdown(
         name: name!,
         initialValue: initialValue,
         decoration: InputDecoration(
             labelStyle: TextStyle(
-              color: enabled ? Theme.of(context).primaryColor : Theme.of(context).disabledColor,
+              color: enabled
+                  ? Theme.of(context).colorScheme.primary
+                  : Theme.of(context).disabledColor,
             ),
             labelText: label,
-            contentPadding: EdgeInsets.all(16),
-            border: new OutlineInputBorder(borderSide: new BorderSide()),
+            contentPadding: const EdgeInsets.all(16),
+            border: const OutlineInputBorder(borderSide: BorderSide()),
             prefixIcon: Icon(icon,
-                color: enabled ? Theme.of(context).primaryColor : Theme.of(context).disabledColor)),
+                color: enabled
+                    ? Theme.of(context).colorScheme.primary
+                    : Theme.of(context).disabledColor)),
         allowClear: allowClear,
         hint: Text(hint!),
         validator: validator,
@@ -50,7 +54,9 @@ class TextDropdown extends StatelessWidget {
         items: items!
             .map((val) => DropdownMenuItem(
                   value: val,
-                  child: Text(Trns.values.firstWhereOrNull((f) => f.toString() == "Trns.$val").val),
+                  child: Text(Trns.values
+                      .firstWhereOrNull((f) => f.toString() == "Trns.$val")
+                      .val),
                 ))
             .toList(),
       ),

@@ -3,7 +3,9 @@
 
 export 'package:flutter/material.dart';
 export 'package:get/get.dart';
+export 'package:sizer/sizer.dart';
 
 export '../base_translations.dart';
+export '../widgets/scaffold_master.dart';
 export '../widgets/screen_master.dart';
 export 'util.dart';

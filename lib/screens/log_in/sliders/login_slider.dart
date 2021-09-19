@@ -2,32 +2,27 @@
 // Use of this source code is governed by a MIT license
 
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:sign_button/constants.dart';
-import 'package:sign_button/create_button.dart';
 
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
+import '../../../../screens/sign_up/sign_up_screen.dart';
 import '../../../../widgets/text_input.dart';
-import '../login_controller.dart';
+import '../log_in_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxLoginSlider extends GetView<FxLoginController> {
+class FxLoginSlider extends GetView<FxLogInController> {
   final _formKey = GlobalKey<FormBuilderState>();
+  FxLoginSlider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return FxLoginSliderMaster(
-      title: Trns.sign_in.val,
+      title: Trns.signIn.val,
       child: Theme(
-        data: new ThemeData(
-          primaryColor: Util.to.getConfig("primary_color"),
-          accentColor: Util.to.getConfig("accent_color"),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              primary: Util.to.getConfig("primary_color"),
-            ),
-          ),
-        ),
+        data: ThemeData().copyWith(
+            colorScheme: ThemeData().colorScheme.copyWith(
+                primary: Util.to.getConfig("primaryColor"),
+                secondary: Util.to.getConfig("secondaryColor"))),
         child: FormBuilder(
           key: _formKey,
           child: Column(children: [
@@ -50,15 +45,17 @@ class FxLoginSlider extends GetView<FxLoginController> {
                   FormBuilderValidators.required(context),
                   FormBuilderValidators.maxLength(context, 50),
                 ])),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: Get.width, height: 48),
+              constraints:
+                  BoxConstraints.tightFor(width: Get.width, height: 48),
               child: ElevatedButton(
-                child: Text(Trns.sign_in.val),
+                child: Text(Trns.signIn.val),
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     var email = _formKey.currentState!.fields['email']?.value;
-                    var password = _formKey.currentState!.fields['password']?.value;
+                    var password =
+                        _formKey.currentState!.fields['password']?.value;
                     controller.signInWithEmailAndPassword(email, password);
                   } else {
                     Util.to.logger().e("Validation Failed");
@@ -66,63 +63,41 @@ class FxLoginSlider extends GetView<FxLoginController> {
                 },
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(Trns.dont_have_an_account.val),
+                Text(Trns.dontHaveAnAccount.val),
                 InkWell(
                     child: Text(
-                      Trns.sign_up.val,
+                      Trns.signUp.val,
                       style: TextStyle(
-                          color: Util.to.getConfig("primary_color"), fontWeight: FontWeight.bold),
+                          color: Util.to.getConfig("primaryColor"),
+                          fontWeight: FontWeight.bold),
                     ),
                     onTap: () {
-                      controller.sliderController.jumpToPage(LoginSliders.registration);
+                      Get.off(() => FxSignUpScreen());
                     }),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(Trns.forgot_your_password.val),
+                Text(Trns.forgotYourPassword.val),
                 InkWell(
                     child: Text(
                       Trns.reset.val,
                       style: TextStyle(
-                          color: Util.to.getConfig("primary_color"), fontWeight: FontWeight.bold),
+                          color: Util.to.getConfig("primaryColor"),
+                          fontWeight: FontWeight.bold),
                     ),
                     onTap: () {
-                      controller.sliderController.jumpToPage(LoginSliders.forgot_password);
+                      controller.loginSliderController
+                          .jumpToPage(LoginSliders.forgotPassword);
                     }),
               ],
             ),
-            SizedBox(height: 32),
-            Text(Trns.or_sign_in_with.val),
-            SizedBox(height: 32),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SignInButton.mini(
-                  buttonType: ButtonType.facebook,
-                  onPressed: () {
-                    controller.signInWithFacebook();
-                  },
-                ),
-                SignInButton.mini(
-                  buttonType: ButtonType.google,
-                  onPressed: () {
-                    controller.signInWithGoogle();
-                  },
-                ),
-                if (GetPlatform.isIOS)
-                  SignInButton.mini(
-                    buttonType: ButtonType.apple,
-                    onPressed: () {},
-                  ),
-              ],
-            )
           ]),
         ),
       ),

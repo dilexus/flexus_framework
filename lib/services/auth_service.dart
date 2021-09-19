@@ -14,17 +14,22 @@ class AuthService extends GetxService {
   var isEmailVerified = false.obs;
 
   Future<Map<String, dynamic>> getUser(String uuid) async {
-    var values = new Map<String, dynamic>();
-    DocumentSnapshot doc = await FirebaseFirestore.instance.collection("users").doc(uuid).get();
+    var values = <String, dynamic>{};
+    DocumentSnapshot doc =
+        await FirebaseFirestore.instance.collection("users").doc(uuid).get();
     if (doc.exists) {
-      values['gender'] = doc['gender'];
-      values['dateOfBirth'] = doc['dateOfBirth'];
+      values['gender'] =
+          doc.data().toString().contains('gender') ? doc.get('gender') : null;
+      values['dateOfBirth'] = doc.data().toString().contains('dateOfBirth')
+          ? doc.get('dateOfBirth')
+          : null;
     }
     return values;
   }
 
-  Future<void> updateUser(String? uuid, Gender gender, DateTime? dateOfBirth) async {
-    var values = new Map<String, dynamic>();
+  Future<void> updateUser(
+      String? uuid, Gender gender, DateTime? dateOfBirth) async {
+    var values = <String, dynamic>{};
     values['gender'] = gender.toShortString();
     if (dateOfBirth != null) values['dateOfBirth'] = dateOfBirth;
     await FirebaseFirestore.instance.collection("users").doc(uuid).set(values);
@@ -33,22 +38,25 @@ class AuthService extends GetxService {
   Future<void> afterLogin() async {
     User user = FirebaseAuth.instance.currentUser!;
     Map<String, dynamic> userData = await AuthService.to.getUser(user.uid);
-    if (userData['gender'] != null)
+    if (userData['gender'] != null) {
       AuthService.to.authUser.value.gender =
           userData['gender'] == "male" ? Gender.male : Gender.female;
-    if (userData['dateOfBirth'] != null)
-      AuthService.to.authUser.value.dateOfBirth = userData['dateOfBirth'].toDate();
+    }
+    if (userData['dateOfBirth'] != null) {
+      AuthService.to.authUser.value.dateOfBirth =
+          userData['dateOfBirth'].toDate();
+    }
     await FlexusController.to.init?.afterAuthentication();
     Util.to.logger().d("Login Success");
   }
 
   void logout(Widget navigateToScreen) async {
     Util.to.showYesNoDialog(
-        message: Trns.logout_confirmation.val,
+        message: Trns.logoutConfirmation.val,
         title: "",
         onYesPressed: () {
           FirebaseAuth.instance.signOut().then((value) {
-            Get.off(navigateToScreen);
+            Get.offAll(navigateToScreen);
             AuthService.to.isEmailVerified.value = false;
             AuthService.to.authUser = AuthUser().obs;
             Util.to.logger().i("User logged out");

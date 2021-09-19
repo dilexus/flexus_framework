@@ -1,5 +1,7 @@
+import 'enums/build.dart';
+
 abstract class BaseInit {
-  init();
+  init(Build build);
 
   splashScreenInit();
 

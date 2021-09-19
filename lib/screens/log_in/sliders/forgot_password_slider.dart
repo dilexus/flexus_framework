@@ -6,28 +6,25 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
 import '../../../../widgets/text_input.dart';
-import '../login_controller.dart';
+import '../log_in_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxForgotPasswordSlider extends GetView<FxLoginController> {
+class FxForgotPasswordSlider extends GetView<FxLogInController> {
   final _formKey = GlobalKey<FormBuilderState>();
+
+  FxForgotPasswordSlider({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return FxLoginSliderMaster(
-      title: Trns.reset_password.val,
+      title: Trns.resetPassword.val,
       onBackPressed: () {
-        controller.sliderController.jumpToPage(LoginSliders.login);
+        controller.loginSliderController.jumpToPage(LoginSliders.login);
       },
       child: Theme(
-        data: new ThemeData(
-          primaryColor: Util.to.getConfig("primary_color"),
-          accentColor: Util.to.getConfig("accent_color"),
-          elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              primary: Util.to.getConfig("primary_color"),
-            ),
-          ),
-        ),
+        data: ThemeData().copyWith(
+            colorScheme: ThemeData().colorScheme.copyWith(
+                primary: Util.to.getConfig("primaryColor"),
+                secondary: Util.to.getConfig("secondaryColor"))),
         child: FormBuilder(
           key: _formKey,
           child: Column(children: [
@@ -41,9 +38,10 @@ class FxForgotPasswordSlider extends GetView<FxLoginController> {
                   FormBuilderValidators.email(context),
                   FormBuilderValidators.maxLength(context, 50),
                 ])),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: Get.width, height: 48),
+              constraints:
+                  BoxConstraints.tightFor(width: Get.width, height: 48),
               child: ElevatedButton(
                 child: Text(Trns.reset.val),
                 onPressed: () {

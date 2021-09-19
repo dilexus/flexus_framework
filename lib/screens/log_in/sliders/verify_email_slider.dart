@@ -8,52 +8,51 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import '../../../../consts/login_sliders.dart';
 import '../../../../imports.dart';
-import '../../../services/auth_service.dart';
-import '../login_controller.dart';
+import '../../../../services/auth_service.dart';
+import '../log_in_controller.dart';
 import '../widgets/login_slider_master.dart';
 
-class FxVerifyEmailSlider extends GetView<FxLoginController> {
+class FxVerifyEmailSlider extends GetView<FxLogInController> {
   final _formKey = GlobalKey<FormBuilderState>();
+
+  FxVerifyEmailSlider({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     _callTimer();
     return Obx(
       () => FxLoginSliderMaster(
-        title: Trns.verify_email.val,
+        title: Trns.verifyEmail.val,
         onBackPressed: AuthService.to.isEmailVerified.value
             ? null
             : () {
-                controller.sliderController.animateToPage(LoginSliders.login);
+                controller.loginSliderController
+                    .animateToPage(LoginSliders.login);
               },
         child: Theme(
-          data: new ThemeData(
-            primaryColor: Util.to.getConfig("primary_color"),
-            accentColor: Util.to.getConfig("accent_color"),
-            hintColor: Util.to.getConfig("primary_color"),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                primary: Util.to.getConfig("primary_color"),
-              ),
-            ),
-          ),
+          data: ThemeData().copyWith(
+              colorScheme: ThemeData().colorScheme.copyWith(
+                  primary: Util.to.getConfig("primaryColor"),
+                  secondary: Util.to.getConfig("secondaryColor"))),
           child: FormBuilder(
             key: _formKey,
             child: Column(children: [
               AuthService.to.isEmailVerified.value
-                  ? Text(Trns.email_after_verified.val, textAlign: TextAlign.center)
-                  : Text(Trns.email_is_being_verified.val, textAlign: TextAlign.center),
-              SizedBox(height: 32),
+                  ? Text(Trns.emailAfterVerified.val,
+                      textAlign: TextAlign.center)
+                  : Text(Trns.emailIsBeingVerified.val,
+                      textAlign: TextAlign.center),
+              const SizedBox(height: 32),
               ConstrainedBox(
-                constraints: BoxConstraints.tightFor(width: Get.width, height: 48),
+                constraints:
+                    BoxConstraints.tightFor(width: Get.width, height: 48),
                 child: ElevatedButton(
                   child: Text(Trns.next.val),
                   onPressed: AuthService.to.isEmailVerified.value
                       ? () {
                           AuthService.to.authUser.value.isEmailVerified = true;
-                          AuthService.to
-                              .afterLogin()
-                              .then((value) => Get.off(() => Util.to.getHomeScreen()));
+                          AuthService.to.afterLogin().then((value) =>
+                              Get.off(() => Util.to.getHomeScreen()));
                         }
                       : null,
                 ),
@@ -66,7 +65,7 @@ class FxVerifyEmailSlider extends GetView<FxLoginController> {
   }
 
   void _callTimer() {
-    Timer.periodic(Duration(seconds: 5), (timer) async {
+    Timer.periodic(const Duration(seconds: 5), (timer) async {
       FirebaseAuth.instance.currentUser!.reload();
       var user = FirebaseAuth.instance.currentUser;
       if (user != null) {
