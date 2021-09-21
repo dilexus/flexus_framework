@@ -19,126 +19,129 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        body: Container(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 10.h,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      "assets/images/logo_1024.png",
-                      height: 6.h,
-                    ),
-                    SizedBox(width: 2.w),
-                    Text(FlexusController.to.title.value)
-                  ],
+        body: SingleChildScrollView(
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 10.h,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/logo_1024.png",
+                        height: 6.h,
+                      ),
+                      SizedBox(width: 2.w),
+                      Text(FlexusController.to.title.value)
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 40.h,
-                child: CarouselSlider(
-                  carouselController: controller.loginSliderController,
-                  options: CarouselOptions(
-                      viewportFraction: 1.0,
-                      height: 40.h,
-                      onPageChanged: (index, reason) {
-                        controller.currentSlider.value = index;
-                      }),
-                  items: FlexusController.to.frontSliderItems
-                      .map((FxFrontSliderItem sliderItem) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                sliderItem.image,
-                                height: 30.h,
-                              ),
-                              SizedBox(height: 1.h),
-                              Text(sliderItem.title,
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.roboto(
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(height: 1.h),
-                              Text(sliderItem.description,
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.montserrat())
-                            ]);
-                      },
+                SizedBox(
+                  height: 40.h,
+                  child: CarouselSlider(
+                    carouselController: controller.loginSliderController,
+                    options: CarouselOptions(
+                        viewportFraction: 1.0,
+                        height: 40.h,
+                        onPageChanged: (index, reason) {
+                          controller.currentSlider.value = index;
+                        }),
+                    items: FlexusController.to.frontSliderItems
+                        .map((FxFrontSliderItem sliderItem) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  sliderItem.image,
+                                  height: 30.h,
+                                ),
+                                SizedBox(height: 1.h),
+                                Text(sliderItem.title,
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.roboto(
+                                        fontWeight: FontWeight.bold)),
+                                SizedBox(height: 1.h),
+                                Text(sliderItem.description,
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.montserrat())
+                              ]);
+                        },
+                      );
+                    }).toList(),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: FlexusController.to.frontSliderItems
+                      .asMap()
+                      .entries
+                      .map((entry) {
+                    return GestureDetector(
+                      onTap: () => controller.loginSliderController
+                          .animateToPage(entry.key),
+                      child: Obx(
+                        () => Container(
+                          width: 8.0,
+                          height: 8.0,
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 8.0, horizontal: 4.0),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: (Theme.of(Get.context!).brightness ==
+                                          Brightness.dark
+                                      ? Colors.white
+                                      : Theme.of(Get.context!)
+                                          .colorScheme
+                                          .primary)
+                                  .withOpacity(controller.currentSlider.value ==
+                                          entry.key
+                                      ? 0.9
+                                      : 0.4)),
+                        ),
+                      ),
                     );
                   }).toList(),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: FlexusController.to.frontSliderItems
-                    .asMap()
-                    .entries
-                    .map((entry) {
-                  return GestureDetector(
-                    onTap: () => controller.loginSliderController
-                        .animateToPage(entry.key),
-                    child: Obx(
-                      () => Container(
-                        width: 8.0,
-                        height: 8.0,
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 8.0, horizontal: 4.0),
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: (Theme.of(Get.context!).brightness ==
-                                        Brightness.dark
-                                    ? Colors.white
-                                    : Theme.of(Get.context!)
-                                        .colorScheme
-                                        .primary)
-                                .withOpacity(
-                                    controller.currentSlider.value == entry.key
-                                        ? 0.9
-                                        : 0.4)),
+                SizedBox(height: 4.h),
+                SizedBox(
+                  height: 20.h,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: 75.w,
+                        height: 48,
+                        child: ElevatedButton(
+                          child: Text(Trns.signUp.val),
+                          onPressed: () {
+                            Get.to(() => FxSignUpScreen());
+                          },
+                        ),
                       ),
-                    ),
-                  );
-                }).toList(),
-              ),
-              SizedBox(height: 4.h),
-              SizedBox(
-                height: 20.h,
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: 75.w,
-                      height: 48,
-                      child: ElevatedButton(
-                        child: Text(Trns.signUp.val),
-                        onPressed: () {
-                          Get.to(() => FxSignUpScreen());
-                        },
-                      ),
-                    ),
-                    SizedBox(height: 2.h),
-                    SizedBox(
-                      width: 75.w,
-                      height: 48,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.white, onPrimary: Colors.black),
-                        child: Text(Trns.signIn.val),
-                        onPressed: () {
-                          Get.to(() => const FxLoginScreen(LoginSliders.login));
-                        },
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
+                      SizedBox(height: 2.h),
+                      SizedBox(
+                        width: 75.w,
+                        height: 48,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors.white, onPrimary: Colors.black),
+                          child: Text(Trns.signIn.val),
+                          onPressed: () {
+                            Get.to(
+                                () => const FxLoginScreen(LoginSliders.login));
+                          },
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
