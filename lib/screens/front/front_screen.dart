@@ -117,6 +117,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                         width: 75.w,
                         height: 48,
                         child: ElevatedButton(
+                          key: const ValueKey("signUpButton"),
                           child: Text(Trns.signUp.val),
                           onPressed: () {
                             Get.to(() => FxSignUpScreen());
@@ -128,6 +129,7 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                         width: 75.w,
                         height: 48,
                         child: ElevatedButton(
+                          key: const ValueKey("logInButton"),
                           style: ElevatedButton.styleFrom(
                               primary: Colors.white, onPrimary: Colors.black),
                           child: Text(Trns.signIn.val),
