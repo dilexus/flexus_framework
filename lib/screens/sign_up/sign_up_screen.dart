@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 
 import '../../../consts/login_sliders.dart';
