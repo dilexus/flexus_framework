@@ -30,23 +30,23 @@ dependencies:
   loading_overlay: ^0.3.0
   visibility_detector: ^0.2.2
   focus_detector: ^2.0.0
-  image_picker: ^0.8.4+3
+  image_picker: ^0.8.4+4
   image_cropper: ^1.4.1
   sizer: ^2.0.15
 
   #Form:
   flutter_form_builder: ^7.0.0
-  form_builder_validators: ^7.0.0
+  form_builder_validators: ^7.1.0
 
   #Firebase
-  firebase_auth: ^3.1.4
-  cloud_firestore: ^2.5.4
-  firebase_storage: ^10.0.6
+  firebase_auth: ^3.2.0
+  cloud_firestore: ^3.1.0
+  firebase_storage: ^10.1.0
   firebase_analytics: ^8.3.4
 
   #Auth
-  google_sign_in: ^5.2.0
-  flutter_facebook_auth: ^3.5.3
+  google_sign_in: ^5.2.1
+  flutter_facebook_auth: ^3.5.6
   sign_in_with_apple: ^3.2.0
 
 dev_dependencies:
