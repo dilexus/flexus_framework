@@ -1,6 +1,6 @@
 name: flexus_framework
 description: Flexus Framework
-version: 4.0.35
+version: 4.0.36
 homepage:
 
 environment:
@@ -36,7 +36,7 @@ dependencies:
 
   #Form:
   flutter_form_builder: ^7.0.0
-  form_builder_validators: ^7.1.0
+  form_builder_validators: ^7.2.0
 
   #Firebase
   firebase_auth: ^3.2.0
