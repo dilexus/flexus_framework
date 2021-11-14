@@ -120,7 +120,8 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                           key: const ValueKey("signUpButton"),
                           child: Text(Trns.signUp.val),
                           onPressed: () {
-                            Get.to(() => FxSignUpScreen());
+                            Get.to(
+                                () => const FxSignUpScreen(LoginSliders.login));
                           },
                         ),
                       ),
