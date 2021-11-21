@@ -75,6 +75,7 @@ build/
 !**/ios/**/default.perspectivev3
 
 release.sh
+release
 .flutter-plugins-dependencies
 android/key.properties
 .fvm/flutter_sdk
