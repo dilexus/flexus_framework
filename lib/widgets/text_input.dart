@@ -36,12 +36,15 @@ class TextInput extends StatelessWidget {
         decoration: InputDecoration(
           labelText: label,
           labelStyle: TextStyle(
-              color:
-                  enabled ? Colors.black54 : Theme.of(context).disabledColor),
+              color: enabled
+                  ? Get.theme.colorScheme.primary
+                  : Get.theme.disabledColor),
           contentPadding: const EdgeInsets.all(16),
           focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Theme.of(context).colorScheme.primary),
+            borderSide: BorderSide(color: Get.theme.colorScheme.primary),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Get.theme.colorScheme.onBackground),
           ),
           border: const OutlineInputBorder(borderSide: BorderSide()),
         ),
