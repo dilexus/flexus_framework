@@ -31,8 +31,6 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
   Widget create() {
     return ScaffoldMaster(
       Trns.updateProfile.val,
-      backgroundColor: Colors.white,
-      textColor: Colors.black,
       body: Obx(
         () => LoadingOverlay(
           opacity: 0.0,

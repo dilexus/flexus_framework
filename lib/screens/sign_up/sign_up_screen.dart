@@ -18,8 +18,6 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
   @override
   Widget create() {
     return ScaffoldMaster(Trns.signUp.val,
-        backgroundColor: Colors.white,
-        textColor: Colors.black,
         body: Obx(
           () => LoadingOverlay(
             opacity: 0.0,
