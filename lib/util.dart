@@ -88,7 +88,8 @@ class Util extends GetxController {
     if (imageFile != null && imageFile.path != "") {
       return CircleAvatar(
           radius: 51,
-          backgroundColor: Colors.black,
+          foregroundColor: Get.theme.colorScheme.background,
+          backgroundColor: Get.theme.colorScheme.onBackground,
           child: CircleAvatar(
             backgroundImage:
                 NetworkToFileImage(url: profilePicture, file: imageFile),
@@ -98,7 +99,7 @@ class Util extends GetxController {
     } else if (profilePicture != null) {
       return CircleAvatar(
           radius: 51,
-          backgroundColor: Colors.black,
+          backgroundColor: Get.theme.colorScheme.onBackground,
           child: CircleAvatar(
             backgroundImage: NetworkToFileImage(url: profilePicture),
             radius: 50,
@@ -107,7 +108,7 @@ class Util extends GetxController {
     } else {
       return CircleAvatar(
         radius: 51,
-        backgroundColor: Colors.black,
+        backgroundColor: Get.theme.colorScheme.onBackground,
         child: CircleAvatar(
             radius: 50,
             backgroundColor: Colors.white,

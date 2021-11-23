@@ -80,7 +80,7 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
                       ),
                       const SizedBox(height: 8),
                       Text(AuthService.to.authUser.value.email!,
-                          style: const TextStyle(color: Colors.black)),
+                          style: TextStyle(color: Get.theme.colorScheme.onBackground)),
                       const SizedBox(height: 16),
                       /*
                         Account Section

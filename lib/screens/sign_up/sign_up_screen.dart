@@ -63,7 +63,7 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                             controller.signInWithApple();
                           },
                         ),
-                      SizedBox(height: 4.h),
+                      SizedBox(height: 1.h),
                       const Text("OR"),
                     ],
                   ),
@@ -71,7 +71,7 @@ class FxSignUpScreen extends ScreenMaster<FxSignUpController> {
                 CarouselSlider(
                   carouselController: controller.loginSliderController,
                   options: CarouselOptions(
-                      height: 60.h,
+                      height: 65.h,
                       viewportFraction: 1,
                       initialPage: initialPage!,
                       scrollPhysics: const NeverScrollableScrollPhysics()),

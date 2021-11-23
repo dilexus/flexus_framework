@@ -28,27 +28,34 @@ class TextDateTimePicker extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 16, bottom: 16),
       child: FormBuilderDateTimePicker(
+        initialDatePickerMode: DatePickerMode.year,
         name: name!,
         inputType: inputType!,
         format: DateFormat("dd/MM/yyyy"),
         style: TextStyle(
             color: enabled
-                ? Theme.of(context).textTheme.bodyText1!.color
+                ? Get.theme.colorScheme.onBackground
                 : Theme.of(context).disabledColor),
         decoration: InputDecoration(
             labelStyle: TextStyle(
               color: enabled
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).disabledColor,
+                  ? Get.theme.colorScheme.onBackground
+                  : Get.theme.disabledColor,
             ),
             labelText: label,
-            contentPadding: const EdgeInsets.all(16),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Get.theme.colorScheme.secondary),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Get.theme.colorScheme.onBackground),
+            ),
             border: const OutlineInputBorder(borderSide: BorderSide()),
+            contentPadding: const EdgeInsets.all(16),
             prefixIcon: Icon(
               icon,
               color: enabled
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).disabledColor,
+                  ? Get.theme.colorScheme.onBackground
+                  : Get.theme.disabledColor,
             )),
         initialValue: initialValue,
         validator: validator,

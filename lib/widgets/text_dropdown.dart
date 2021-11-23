@@ -36,27 +36,34 @@ class TextDropdown extends StatelessWidget {
         initialValue: initialValue,
         decoration: InputDecoration(
             labelStyle: TextStyle(
-              color: enabled
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).disabledColor,
+              color: enabled ? Get.theme.colorScheme.onBackground : Get.theme.disabledColor,
             ),
             labelText: label,
-            contentPadding: const EdgeInsets.all(16),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Get.theme.colorScheme.secondary),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Get.theme.colorScheme.onBackground),
+            ),
             border: const OutlineInputBorder(borderSide: BorderSide()),
-            prefixIcon: Icon(icon,
-                color: enabled
-                    ? Theme.of(context).colorScheme.primary
-                    : Theme.of(context).disabledColor)),
+            contentPadding: const EdgeInsets.all(16),
+            prefixIcon: Icon(icon, color: enabled ? Get.theme.colorScheme.onBackground : Get.theme.disabledColor)),
         allowClear: allowClear,
-        hint: Text(hint!),
+        hint: Text(hint!,style: TextStyle( color: Get.theme.colorScheme.onBackground),),
+        style: TextStyle(
+          color: Get.theme.colorScheme.onBackground,
+        ),
         validator: validator,
         enabled: enabled,
+        dropdownColor: Get.theme.colorScheme.background,
         items: items!
             .map((val) => DropdownMenuItem(
                   value: val,
-                  child: Text(Trns.values
-                      .firstWhereOrNull((f) => f.toString() == "Trns.$val")
-                      .val),
+                  child: Text(
+                    Trns.values.firstWhereOrNull((f) => f.toString() == "Trns.$val").val,
+
+                  ),
+
                 ))
             .toList(),
       ),
