@@ -148,6 +148,7 @@ class Util extends GetxController {
         title: title,
         middleText: message,
         barrierDismissible: barrierDismissible,
+        backgroundColor: Get.theme.colorScheme.background,
         content: content,
         confirm: DialogBoxButton(
             textOK ?? Trns.ok.val, onOKPressed ?? () => Get.back()),
@@ -167,6 +168,7 @@ class Util extends GetxController {
         title: title,
         middleText: message,
         content: content,
+        backgroundColor: Get.theme.colorScheme.background,
         barrierDismissible: barrierDismissible,
         confirm: DialogBoxButton(
             textYes ?? Trns.yes.val, onYesPressed ?? () => Get.back()),
