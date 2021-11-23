@@ -10,7 +10,7 @@ class FormFieldSeparator extends StatelessWidget {
     return Column(
       children: [
         const SizedBox(height: 16),
-        Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+        Text(name, style:  TextStyle(fontWeight: FontWeight.bold,color: Get.theme.colorScheme.onBackground)),
         const SizedBox(height: 16),
       ],
     );
