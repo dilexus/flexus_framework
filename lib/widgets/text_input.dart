@@ -42,7 +42,7 @@ class TextInput extends StatelessWidget {
                   : Get.theme.disabledColor),
           contentPadding: const EdgeInsets.all(16),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Get.theme.colorScheme.primary),
+            borderSide: BorderSide(color: Get.theme.colorScheme.secondary),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Get.theme.colorScheme.onBackground),
