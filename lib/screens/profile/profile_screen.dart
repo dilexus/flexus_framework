@@ -39,130 +39,124 @@ class FxProfileScreen extends ScreenMaster<FxProfileController> {
             return SingleChildScrollView(
               child: Container(
                 padding: const EdgeInsets.all(16.0),
-                child: Theme(
-                  data: ThemeData().copyWith(
-                      colorScheme: ThemeData().colorScheme.copyWith(
-                          primary: Get.theme.colorScheme.primary,
-                          secondary: Get.theme.colorScheme.secondary)),
-                  child: FormBuilder(
-                    key: _formKey,
-                    child: Column(children: [
-                      const SizedBox(height: 8),
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Obx(
-                            () => Util.to.getCircularAvatar(
-                                AuthService.to.authUser.value.profilePicture,
-                                AuthService.to.authUser.value.name,
-                                context,
-                                imageFile: controller.imageFile.value),
-                          ),
-                          if (AuthService.to.authUser.value.authType ==
-                              AuthType.email)
-                            Padding(
-                              padding: const EdgeInsets.only(left: 100),
-                              child: ElevatedButton(
-                                onPressed: _readPhoto,
-                                child: const Icon(
-                                  Icons.add_a_photo,
-                                  color: Colors.white,
-                                  size: 16,
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  shape: const CircleBorder(),
-                                  primary:
-                                      Theme.of(context).colorScheme.primary,
-                                ),
-                              ),
-                            )
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      Text(AuthService.to.authUser.value.email!,
-                          style: TextStyle(color: Get.theme.colorScheme.onBackground)),
-                      const SizedBox(height: 16),
-                      /*
-                        Account Section
-                        */
-                      FormFieldSeparator(Trns.accountDetails.val),
-                      TextInput(
-                          name: 'name',
-                          label: Trns.name.val,
-                          initialValue: AuthService.to.authUser.value.name,
-                          icon: Icons.person_outline,
-                          obscureText: false,
-                          validator: FormBuilderValidators.compose([
-                            FormBuilderValidators.required(context),
-                            FormBuilderValidators.maxLength(context, 50),
-                          ])),
-                      _getGenderTextField(context),
-                      TextDateTimePicker(
-                        name: 'date_of_birth',
-                        label: Trns.dateOfBirth.val,
-                        inputType: InputType.date,
-                        icon: Icons.date_range_outlined,
-                        initialValue: AuthService.to.authUser.value.dateOfBirth,
-                        enabled:
-                            AuthService.to.authUser.value.dateOfBirth != null
-                                ? false
-                                : true,
-                        validator: FormBuilderValidators.compose(
-                            [FormBuilderValidators.required(context)]),
-                      ),
-
-                      /*
-                        Security Section
-                        */
-                      FormFieldSeparator(Trns.security.val),
-                      TextInput(
-                          name: 'password',
-                          label: Trns.password.val,
-                          icon: Icons.vpn_key,
-                          obscureText: true,
-                          enabled: AuthService.to.authUser.value.authType ==
-                              AuthType.email,
-                          validator: FormBuilderValidators.compose([
-                            FormBuilderValidators.maxLength(context, 50),
-                            (val) {
-                              if (val != null && val.length < 8) {
-                                return Trns.warningMinimumPasswordLength.val;
-                              }
-                              return null;
-                            }
-                          ])),
-                      TextInput(
-                          name: 'confirm_password',
-                          label: Trns.confirmPassword.val,
-                          icon: Icons.vpn_key,
-                          enabled: AuthService.to.authUser.value.authType ==
-                              AuthType.email,
-                          obscureText: true,
-                          validator: FormBuilderValidators.compose([
-                            FormBuilderValidators.maxLength(context, 50),
-                            (val) {
-                              if (_formKey.currentState!.fields['password']
-                                      ?.value !=
-                                  val) {
-                                return Trns.warningPasswordsNotMatching.val;
-                              }
-                              return null;
-                            }
-                          ])),
-                      const SizedBox(height: 16),
-                      ConstrainedBox(
-                        constraints: BoxConstraints.tightFor(
-                            width: Get.width, height: 48),
-                        child: ElevatedButton(
-                          child: Text(Trns.updateProfile.val),
-                          onPressed: () {
-                            profileController.isLoading.value = true;
-                            controller.updateProfile(_formKey);
-                          },
+                child: FormBuilder(
+                  key: _formKey,
+                  child: Column(children: [
+                    const SizedBox(height: 8),
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Obx(
+                          () => Util.to.getCircularAvatar(
+                              AuthService.to.authUser.value.profilePicture,
+                              AuthService.to.authUser.value.name,
+                              context,
+                              imageFile: controller.imageFile.value),
                         ),
+                        if (AuthService.to.authUser.value.authType ==
+                            AuthType.email)
+                          Padding(
+                            padding: const EdgeInsets.only(left: 100),
+                            child: ElevatedButton(
+                              onPressed: _readPhoto,
+                              child: const Icon(
+                                Icons.add_a_photo,
+                                color: Colors.white,
+                                size: 16,
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                shape: const CircleBorder(),
+                                primary:
+                                    Theme.of(context).colorScheme.primary,
+                              ),
+                            ),
+                          )
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Text(AuthService.to.authUser.value.email!,
+                        style: TextStyle(color: Get.theme.colorScheme.onBackground)),
+                    const SizedBox(height: 16),
+                    /*
+                      Account Section
+                      */
+                    FormFieldSeparator(Trns.accountDetails.val),
+                    TextInput(
+                        name: 'name',
+                        label: Trns.name.val,
+                        initialValue: AuthService.to.authUser.value.name,
+                        icon: Icons.person_outline,
+                        obscureText: false,
+                        validator: FormBuilderValidators.compose([
+                          FormBuilderValidators.required(context),
+                          FormBuilderValidators.maxLength(context, 50),
+                        ])),
+                    _getGenderTextField(context),
+                    TextDateTimePicker(
+                      name: 'date_of_birth',
+                      label: Trns.dateOfBirth.val,
+                      inputType: InputType.date,
+                      icon: Icons.date_range_outlined,
+                      initialValue: AuthService.to.authUser.value.dateOfBirth,
+                      enabled:
+                          AuthService.to.authUser.value.dateOfBirth != null
+                              ? false
+                              : true,
+                      validator: FormBuilderValidators.compose(
+                          [FormBuilderValidators.required(context)]),
+                    ),
+
+                    /*
+                      Security Section
+                      */
+                    FormFieldSeparator(Trns.security.val),
+                    TextInput(
+                        name: 'password',
+                        label: Trns.password.val,
+                        icon: Icons.vpn_key,
+                        obscureText: true,
+                        enabled: AuthService.to.authUser.value.authType ==
+                            AuthType.email,
+                        validator: FormBuilderValidators.compose([
+                          FormBuilderValidators.maxLength(context, 50),
+                          (val) {
+                            if (val != null && val.length < 8) {
+                              return Trns.warningMinimumPasswordLength.val;
+                            }
+                            return null;
+                          }
+                        ])),
+                    TextInput(
+                        name: 'confirm_password',
+                        label: Trns.confirmPassword.val,
+                        icon: Icons.vpn_key,
+                        enabled: AuthService.to.authUser.value.authType ==
+                            AuthType.email,
+                        obscureText: true,
+                        validator: FormBuilderValidators.compose([
+                          FormBuilderValidators.maxLength(context, 50),
+                          (val) {
+                            if (_formKey.currentState!.fields['password']
+                                    ?.value !=
+                                val) {
+                              return Trns.warningPasswordsNotMatching.val;
+                            }
+                            return null;
+                          }
+                        ])),
+                    const SizedBox(height: 16),
+                    ConstrainedBox(
+                      constraints: BoxConstraints.tightFor(
+                          width: Get.width, height: 48),
+                      child: ElevatedButton(
+                        child: Text(Trns.updateProfile.val),
+                        onPressed: () {
+                          profileController.isLoading.value = true;
+                          controller.updateProfile(_formKey);
+                        },
                       ),
-                    ]),
-                  ),
+                    ),
+                  ]),
                 ),
               ),
             );
