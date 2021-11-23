@@ -38,11 +38,11 @@ class TextInput extends StatelessWidget {
           labelText: label,
           labelStyle: TextStyle(
               color: enabled
-                  ? Get.theme.colorScheme.primary
+                  ? Get.theme.colorScheme.onBackground
                   : Get.theme.disabledColor),
           contentPadding: const EdgeInsets.all(16),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Get.theme.colorScheme.primary),
+            borderSide: BorderSide(color: Get.theme.colorScheme.secondary),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Get.theme.colorScheme.onBackground),
