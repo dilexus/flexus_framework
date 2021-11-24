@@ -53,7 +53,7 @@ class AuthService extends GetxService {
   void logout(Widget navigateToScreen) async {
     Util.to.showYesNoDialog(
         message: Trns.logoutConfirmation.val,
-        title: "",
+        title: Trns.logoutConfirmationTitle.val,
         onYesPressed: () {
           FirebaseAuth.instance.signOut().then((value) {
             Get.offAll(navigateToScreen);

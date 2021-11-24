@@ -57,6 +57,7 @@ class BaseTranslations extends Translations {
           Trns.resetPasswordSent.name:
               "Reset password email sent to your email inbox",
           Trns.logoutConfirmation.name: "Are you sure you want to sign out?",
+          Trns.logoutConfirmationTitle.name: "Sign out?",
           Trns.errorNoUserFound.name: "No user found for that email.",
           Trns.errorWrongPassword.name:
               "Wrong password provided for that user.",
@@ -128,6 +129,7 @@ enum Trns {
   no,
   resetPasswordSent,
   logoutConfirmation,
+  logoutConfirmationTitle,
   errorNoUserFound,
   errorWrongPassword,
   errorWeakPassword,
