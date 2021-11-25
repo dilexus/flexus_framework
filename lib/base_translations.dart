@@ -54,6 +54,7 @@ class BaseTranslations extends Translations {
           Trns.cancel.name: "Cancel",
           Trns.yes.name: "Yes",
           Trns.no.name: "No",
+          Trns.save.name: "Save",
           Trns.resetPasswordSent.name:
               "Reset password email sent to your email inbox",
           Trns.logoutConfirmation.name: "Are you sure you want to sign out?",
@@ -127,6 +128,7 @@ enum Trns {
   cancel,
   yes,
   no,
+  save,
   resetPasswordSent,
   logoutConfirmation,
   logoutConfirmationTitle,
