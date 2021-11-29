@@ -10,6 +10,14 @@ class ScaffoldMaster extends StatelessWidget {
   final Color? backgroundColor;
   final Color? textColor;
   final AppBar? appBar;
+  final List<Widget>? persistentFooterButtons;
+  final Widget? floatingActionButton;
+  final FloatingActionButtonAnimator? floatingActionButtonAnimator;
+  final FloatingActionButtonLocation? floatingActionButtonLocation;
+  final bool? resizeToAvoidBottomInset;
+  final Color? backgroundColorOfScaffold;
+  final Widget? bottomSheet;
+  final Widget? bottomNavigationBar;
   final List<Widget>? actions;
   final bool extendBody;
   final bool extendBodyBehindAppBar;
@@ -19,6 +27,14 @@ class ScaffoldMaster extends StatelessWidget {
       this.textColor,
       this.leading,
       this.appBar,
+      this.persistentFooterButtons,
+      this.floatingActionButton,
+      this.floatingActionButtonAnimator,
+      this.floatingActionButtonLocation,
+      this.resizeToAvoidBottomInset,
+      this.backgroundColorOfScaffold,
+      this.bottomSheet,
+      this.bottomNavigationBar,
       this.actions,
       this.extendBody = false,
       this.extendBodyBehindAppBar = false,
@@ -42,6 +58,14 @@ class ScaffoldMaster extends StatelessWidget {
                   foregroundColor: textColor ??
                       Theme.of(Get.context!).appBarTheme.foregroundColor),
           drawer: drawer,
+          floatingActionButton: floatingActionButton,
+          floatingActionButtonAnimator: floatingActionButtonAnimator,
+          floatingActionButtonLocation: floatingActionButtonLocation,
+          bottomSheet: bottomSheet,
+          bottomNavigationBar: bottomNavigationBar,
+          resizeToAvoidBottomInset: resizeToAvoidBottomInset,
+          backgroundColor: backgroundColorOfScaffold,
+          persistentFooterButtons: persistentFooterButtons,
           body: body),
     );
   }
