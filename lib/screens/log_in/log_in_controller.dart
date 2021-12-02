@@ -33,14 +33,14 @@ class FxLogInController extends GetxController {
         Util.to.setAuthUserDetails(AuthService.to.authUser.value, user);
         if (user.emailVerified) {
           AuthService.to.isEmailVerified.value = true;
-          isLoading.value = false;
-          AuthService.to
-              .afterLogin()
-              .then((value) => Get.offAll(() => Util.to.getHomeScreen()));
+          AuthService.to.afterLogin().then((value) {
+            Get.offAll(() => Util.to.getHomeScreen());
+            isLoading.value = false;
+          });
         } else {
           await user.sendEmailVerification();
-          isLoading.value = false;
           loginSliderController.jumpToPage(LoginSliders.verifyEmail);
+          isLoading.value = false;
         }
       }
     } on FirebaseAuthException catch (e) {
