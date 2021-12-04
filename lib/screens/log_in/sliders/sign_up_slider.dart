@@ -18,7 +18,7 @@ class FxSignUpSlider extends GetView<FxSignUpController> {
   @override
   Widget build(BuildContext context) {
     return FxLoginSliderMaster(
-      title: Trns.signIn.val,
+      title: Trns.signUp.val,
       child: Theme(
         data: ThemeData().copyWith(
             colorScheme: ThemeData().colorScheme.copyWith(
