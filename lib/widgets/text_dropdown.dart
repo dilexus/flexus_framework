@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import '../../imports.dart';
@@ -36,7 +35,9 @@ class TextDropdown extends StatelessWidget {
         initialValue: initialValue,
         decoration: InputDecoration(
             labelStyle: TextStyle(
-              color: enabled ? Get.theme.colorScheme.onBackground : Get.theme.disabledColor,
+              color: enabled
+                  ? Get.theme.colorScheme.onBackground
+                  : Get.theme.disabledColor,
             ),
             labelText: label,
             focusedBorder: OutlineInputBorder(
@@ -47,9 +48,15 @@ class TextDropdown extends StatelessWidget {
             ),
             border: const OutlineInputBorder(borderSide: BorderSide()),
             contentPadding: const EdgeInsets.all(16),
-            prefixIcon: Icon(icon, color: enabled ? Get.theme.colorScheme.onBackground : Get.theme.disabledColor)),
+            prefixIcon: Icon(icon,
+                color: enabled
+                    ? Get.theme.colorScheme.onBackground
+                    : Get.theme.disabledColor)),
         allowClear: allowClear,
-        hint: Text(hint!,style: TextStyle( color: Get.theme.colorScheme.onBackground),),
+        hint: Text(
+          hint!,
+          style: TextStyle(color: Get.theme.colorScheme.onBackground),
+        ),
         style: TextStyle(
           color: Get.theme.colorScheme.onBackground,
         ),
@@ -60,10 +67,10 @@ class TextDropdown extends StatelessWidget {
             .map((val) => DropdownMenuItem(
                   value: val,
                   child: Text(
-                    Trns.values.firstWhereOrNull((f) => f.toString() == "Trns.$val").val,
-
+                    Trns.values
+                        .firstWhereOrNull((f) => f.toString() == "Trns.$val")
+                        .val,
                   ),
-
                 ))
             .toList(),
       ),
