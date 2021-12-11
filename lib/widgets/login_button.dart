@@ -17,10 +17,10 @@ class LoginButton extends StatelessWidget {
         height: 48,
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.white,
-              onPrimary: Colors.black,
+              primary: Colors.transparent,
               shape: RoundedRectangleBorder(
-                side: const BorderSide(width: 1.0, color: Colors.black),
+                side: BorderSide(
+                    width: 1.0, color: Get.theme.colorScheme.onBackground),
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
