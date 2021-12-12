@@ -30,9 +30,9 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
                     children: [
                       LoginButton(
                         Trns.signInWithGoogle.val,
-                        icon: const Icon(
+                        icon: Icon(
                           FontAwesomeIcons.google,
-                          color: Colors.red,
+                          color: Get.isDarkMode ? Colors.white : Colors.red,
                           size: 24.0,
                         ),
                         onClick: () {
@@ -41,9 +41,9 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
                       ),
                       LoginButton(
                         Trns.signInWithFacebook.val,
-                        icon: const Icon(
+                        icon: Icon(
                           FontAwesomeIcons.facebook,
-                          color: Colors.blue,
+                          color: Get.isDarkMode ? Colors.white : Colors.blue,
                           size: 24.0,
                         ),
                         onClick: () {
