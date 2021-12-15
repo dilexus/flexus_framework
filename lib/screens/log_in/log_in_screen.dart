@@ -53,9 +53,9 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
                       if (Platform.isIOS)
                         LoginButton(
                           Trns.signInWithApple.val,
-                          icon: const Icon(
+                          icon: Icon(
                             FontAwesomeIcons.apple,
-                            color: Colors.black,
+                            color: Get.isDarkMode ? Colors.white : Colors.black,
                             size: 24.0,
                           ),
                           onClick: () {

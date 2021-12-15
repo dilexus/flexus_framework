@@ -17,7 +17,7 @@ class LoginButton extends StatelessWidget {
         height: 48,
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.transparent,
+              primary: Get.theme.colorScheme.secondaryVariant,
               shape: RoundedRectangleBorder(
                 side: BorderSide(
                     width: 1.0, color: Get.theme.colorScheme.onBackground),
