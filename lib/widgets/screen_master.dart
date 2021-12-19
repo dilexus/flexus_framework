@@ -14,7 +14,8 @@ abstract class ScreenMaster<T> extends ScreenFragment<T> {
   void onStart() {
     super.onStart();
     if (FlexusController.to.enableAnalytics) {
-      FirebaseAnalytics().setCurrentScreen(screenName: runtimeType.toString());
+      FirebaseAnalytics.instance
+          .setCurrentScreen(screenName: runtimeType.toString());
     }
   }
 }
