@@ -23,27 +23,25 @@ app `main()` — it is consumed by other Flutter apps. The normal development wo
   absolute binary path `~/flutter/bin/flutter` if `flutter` is not found.
 
 ### Lint / test (these work)
-- Lint: `flutter analyze` (passes; only pre-existing `info`-level deprecation/duplicate-import lints).
+- Lint: `flutter analyze` (clean — no issues).
 - Test: `flutter test` (the only test, `test/flexus_framework_test.dart`, has an empty `main()`, so
   it reports "No tests ran" but the harness compiles and runs).
 
-### Android / iOS app builds — KNOWN BROKEN at the dependency level (not an env issue)
-This package cannot currently be compiled into an app for **any** target (Android, iOS, or web)
-because of its pinned, pre-Dart-2.15 dependencies:
-- `network_to_file_image 3.1.0`'s `_MockHttpClient implements HttpClient` is missing
-  `HttpClient.keyLog` (added in Dart 2.15) and `connectionFactory` (added in Dart 2.18).
-  The fix is only in `network_to_file_image 4.x`, which is **outside** this package's `^3.1.0`
-  constraint. So it needs Dart `<= 2.14`.
-- The locked `firebase_*` plugins (e.g. `firebase_core`, `firebase_auth 3.3.6`) reference APIs
-  (`FirebaseAppPlatform.verifyExtends`, `RecaptchaVerifier(... auth:)`) that newer
-  platform-interface packages no longer provide.
+### Building this package into an app
+`flexus_framework` is a library, so it is built/run through a host app (e.g. a small example app
+with a path dependency on this repo). The dependencies were upgraded to versions that compile under
+Flutter 3.7.12 / Dart 2.19 (`network_to_file_image 4.x`, `firebase_* 4.x/10.x/11.x`,
+`image_cropper 4.x`, `flutter_form_builder`/`form_builder_validators 8.x`, `carousel_slider 5.x`,
+etc.). `sizer` is intentionally kept at `2.0.15`: 3.x changes `DeviceType` to OS-based values
+(no `mobile`/`tablet`) and re-exports `ScreenType`, which clashes with `get`.
 
-Because the package's other dependencies require `flutter >= 2.10` (Dart `>= 2.16`) while
-`network_to_file_image 3.1.0` requires Dart `<= 2.14`, **there is no single Flutter version that
-both resolves (`pub get`) and compiles**. `flutter build apk` runs the full Gradle pipeline
-successfully and only fails at the Dart `kernel_snapshot` step with the errors above. To actually
-ship an app you must bump `network_to_file_image` to `^4` and the `firebase_*` plugins in
-`pubspec.yaml` (and adapt the code) — out of scope for environment setup.
+Known build caveats for a consuming/host app (not the package itself):
+- The host app's `android/app/build.gradle` must set `minSdkVersion 21` (cloud_firestore requires
+  `>= 19`); the Flutter default (`flutter.minSdkVersion`) is too low.
+- After changing `package_info_plus` major versions, run `flutter clean` in the host app before a
+  web build, otherwise a stale `web_plugin_registrant.dart` references the removed
+  `package_info_plus_web` package.
 
-iOS builds additionally **cannot run on Linux at all**: `flutter build ios` is not even a
-registered subcommand here (only `aar/apk/appbundle/bundle/web` are). iOS requires macOS + Xcode.
+### iOS
+iOS builds **cannot run on Linux**: `flutter build ios` is not a registered subcommand here
+(only `aar/apk/appbundle/bundle/web` are). iOS requires macOS + Xcode.
