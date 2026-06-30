@@ -16,17 +16,17 @@ class AppBarActionButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: ElevatedButton(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [icon, Text(title)],
-        ),
         style: ElevatedButton.styleFrom(
             minimumSize: const Size(20.0, 20.0),
             side: null,
             elevation: 0,
-            primary: Colors.transparent,
+            backgroundColor: Colors.transparent,
             padding: const EdgeInsets.only(left: 8.0, right: 8.0)),
         onPressed: onPressed,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [icon, Text(title)],
+        ),
       ),
     );
   }

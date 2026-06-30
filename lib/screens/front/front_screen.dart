@@ -132,8 +132,9 @@ class FxFrontScreen extends ScreenMaster<FxFrontController> {
                         child: ElevatedButton(
                           key: const ValueKey("logInButton"),
                           style: ElevatedButton.styleFrom(
-                              primary: Get.theme.colorScheme.secondary,
-                              onPrimary: Get.theme.colorScheme.onSecondary),
+                              backgroundColor: Get.theme.colorScheme.secondary,
+                              foregroundColor:
+                                  Get.theme.colorScheme.onSecondary),
                           child: Text(Trns.signIn.val),
                           onPressed: () {
                             Get.to(

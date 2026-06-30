@@ -40,6 +40,7 @@ class TextDropdown extends StatelessWidget {
                   : Get.theme.disabledColor,
             ),
             labelText: label,
+            hintText: hint,
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Get.theme.colorScheme.secondary),
             ),
@@ -52,11 +53,6 @@ class TextDropdown extends StatelessWidget {
                 color: enabled
                     ? Get.theme.colorScheme.onBackground
                     : Get.theme.disabledColor)),
-        allowClear: allowClear,
-        hint: Text(
-          hint!,
-          style: TextStyle(color: Get.theme.colorScheme.onBackground),
-        ),
         style: TextStyle(
           color: Get.theme.colorScheme.onBackground,
         ),

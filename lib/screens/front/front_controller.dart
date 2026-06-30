@@ -14,10 +14,11 @@ import '../../imports.dart';
 import '../../services/auth_service.dart';
 
 class FxFrontController extends GetxController {
-  CarouselController sliderController = CarouselController();
+  CarouselSliderController sliderController = CarouselSliderController();
   var isLoading = false.obs;
   var currentSlider = 0.obs;
-  final CarouselController loginSliderController = CarouselController();
+  final CarouselSliderController loginSliderController =
+      CarouselSliderController();
 
   Future<void> signInWithGoogle() async {
     isLoading.value = true;

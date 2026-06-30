@@ -26,7 +26,7 @@ class Util extends GetxController {
     lineLength: 50,
     colors: true,
     printEmojis: true,
-    printTime: false,
+    dateTimeFormat: DateTimeFormat.none,
   ));
 
   Logger logger() {

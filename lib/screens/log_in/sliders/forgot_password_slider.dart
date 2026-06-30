@@ -35,9 +35,9 @@ class FxForgotPasswordSlider extends GetView<FxLogInController> {
                 icon: Icons.email_outlined,
                 obscureText: false,
                 validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(context),
-                  FormBuilderValidators.email(context),
-                  FormBuilderValidators.maxLength(context, 50),
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.email(),
+                  FormBuilderValidators.maxLength(50),
                 ])),
             const SizedBox(height: 32),
             ConstrainedBox(
