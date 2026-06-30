@@ -33,9 +33,9 @@ class FxLoginSlider extends GetView<FxLogInController> {
                 icon: Icons.email_outlined,
                 obscureText: false,
                 validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(context),
-                  FormBuilderValidators.email(context),
-                  FormBuilderValidators.maxLength(context, 50),
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.email(),
+                  FormBuilderValidators.maxLength(50),
                 ])),
             TextInput(
                 name: 'password',
@@ -43,8 +43,8 @@ class FxLoginSlider extends GetView<FxLogInController> {
                 icon: Icons.vpn_key,
                 obscureText: true,
                 validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(context),
-                  FormBuilderValidators.maxLength(context, 50),
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.maxLength(50),
                 ])),
             const SizedBox(height: 16),
             ConstrainedBox(

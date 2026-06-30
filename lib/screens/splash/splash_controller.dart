@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import '../../../../consts/login_sliders.dart';
 import '../../../../flexus_framework.dart';
-import '../../../../screens/front/front_screen.dart';
 import '../../../../screens/log_in/log_in_screen.dart';
 import '../../imports.dart';
 import '../../services/auth_service.dart';

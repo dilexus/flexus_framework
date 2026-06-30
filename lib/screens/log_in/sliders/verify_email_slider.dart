@@ -47,7 +47,6 @@ class FxVerifyEmailSlider extends GetView<FxLogInController> {
                 constraints:
                     BoxConstraints.tightFor(width: Get.width, height: 48),
                 child: ElevatedButton(
-                  child: Text(Trns.next.val),
                   onPressed: AuthService.to.isEmailVerified.value
                       ? () {
                           AuthService.to.authUser.value.isEmailVerified = true;
@@ -55,6 +54,7 @@ class FxVerifyEmailSlider extends GetView<FxLogInController> {
                               Get.off(() => Util.to.getHomeScreen()));
                         }
                       : null,
+                  child: Text(Trns.next.val),
                 ),
               ),
             ]),

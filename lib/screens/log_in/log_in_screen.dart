@@ -19,7 +19,6 @@ class FxLoginScreen extends ScreenMaster<FxLogInController> {
     return ScaffoldMaster(Trns.signIn.val,
         body: Obx(
           () => LoadingOverlay(
-            opacity: 0.0,
             isLoading: controller.isLoading.value,
             child: SingleChildScrollView(
               child: Column(children: [

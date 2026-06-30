@@ -33,8 +33,8 @@ class FxSignUpSlider extends GetView<FxSignUpController> {
                 icon: Icons.person_outline,
                 obscureText: false,
                 validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(Get.context!),
-                  FormBuilderValidators.maxLength(Get.context!, 50),
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.maxLength(50),
                 ])),
             TextInput(
                 name: 'email',
@@ -42,9 +42,9 @@ class FxSignUpSlider extends GetView<FxSignUpController> {
                 icon: Icons.email_outlined,
                 obscureText: false,
                 validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(Get.context!),
-                  FormBuilderValidators.email(Get.context!),
-                  FormBuilderValidators.maxLength(Get.context!, 50),
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.email(),
+                  FormBuilderValidators.maxLength(50),
                 ])),
             TextInput(
                 name: 'password',
@@ -52,9 +52,9 @@ class FxSignUpSlider extends GetView<FxSignUpController> {
                 icon: Icons.vpn_key,
                 obscureText: true,
                 validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(Get.context!),
-                  FormBuilderValidators.maxLength(Get.context!, 50),
-                  FormBuilderValidators.minLength(Get.context!, 8),
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.maxLength(50),
+                  FormBuilderValidators.minLength(8),
                 ])),
             TextInput(
                 name: 'confirm_password',
@@ -62,9 +62,9 @@ class FxSignUpSlider extends GetView<FxSignUpController> {
                 icon: Icons.vpn_key,
                 obscureText: true,
                 validator: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(Get.context!),
-                  FormBuilderValidators.maxLength(Get.context!, 50),
-                  FormBuilderValidators.minLength(Get.context!, 8),
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.maxLength(50),
+                  FormBuilderValidators.minLength(8),
                   (val) {
                     if (_formKey.currentState!.fields['password']?.value !=
                         val) {

@@ -19,7 +19,8 @@ import '../../services/auth_service.dart';
 
 class FxLogInController extends GetxController {
   var isLoading = false.obs;
-  final CarouselController loginSliderController = CarouselController();
+  final CarouselSliderController loginSliderController =
+      CarouselSliderController();
 
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     try {

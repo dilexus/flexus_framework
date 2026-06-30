@@ -17,13 +17,14 @@ class LoginButton extends StatelessWidget {
         height: 48,
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Get.theme.colorScheme.surface,
+              backgroundColor: Get.theme.colorScheme.surface,
               shape: RoundedRectangleBorder(
                 side: BorderSide(
                     width: 1.0, color: Get.theme.colorScheme.onBackground),
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
+            onPressed: onClick,
             child: Stack(
               children: [
                 Align(alignment: Alignment.centerLeft, child: icon),
@@ -33,8 +34,7 @@ class LoginButton extends StatelessWidget {
                         style:
                             TextStyle(color: Get.theme.colorScheme.onSurface))),
               ],
-            ),
-            onPressed: onClick),
+            )),
       ),
     );
   }
